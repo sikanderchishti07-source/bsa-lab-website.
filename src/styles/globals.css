@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-950: #071229;
+  --navy-900: #0b1a38;
+  --navy-700: #11244c; /* PRIMARY – letterhead navy */
+  --navy-500: #1e3a70;
+  --blue-400: #2f6fb5;
+  --blue-100: #e8eef8;
+  --green-600: #148a2a; /* SECONDARY – letterhead green */
+  --green-500: #1c8d31;
+  --lime-500: #86b42e; /* ACCENT – letterhead lime */
+  --gray-50: #f5f4f9; /* letterhead watermark */
+  --gray-600: #595959;
+  --stripe-angle: 110deg;
+}
+[dir='rtl'] {
+  --stripe-angle: -110deg;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: auto;
+  }
+  body {
+    @apply bg-white font-sans text-ink-600;
+  }
+  [dir='rtl'] body {
+    @apply font-arabic;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-navy-700;
+    letter-spacing: -0.02em;
+  }
+  [dir='rtl'] h1, [dir='rtl'] h2, [dir='rtl'] h3, [dir='rtl'] h4 {
+    @apply font-arabic;
+    letter-spacing: 0;
+  }
+  ::selection {
+    background: #86b42e;
+    color: #0b1a38;
+  }
+  :focus-visible {
+    outline: 3px solid var(--navy-700);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--lime-500);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-leaf-600;
+  }
+  [dir='rtl'] .eyebrow {
+    @apply tracking-normal text-sm;
+  }
+  .stripes-bg {
+    background-image: linear-gradient(var(--stripe-angle), #11244c 0%, #11244c 55%, #148a2a 55%, #148a2a 80%, #86b42e 80%);
+  }
+  .card {
+    @apply rounded-2xl border border-navy-700/10 bg-white shadow-card;
+  }
+  .flip-rtl {
+    transform: none;
+  }
+  [dir='rtl'] .flip-rtl {
+    transform: scaleX(-1);
+  }
+  .input {
+    @apply w-full rounded-xl border border-navy-700/15 bg-white px-4 py-3 text-navy-900 placeholder:text-ink-600/60 transition focus:border-aqua-400 focus:outline-none focus:ring-4 focus:ring-aqua-400/15;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-navy-700;
+  }
+  .grain {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

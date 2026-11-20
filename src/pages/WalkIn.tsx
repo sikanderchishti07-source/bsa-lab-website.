@@ -65,7 +65,7 @@ export default function WalkIn() {
       <section className="py-24">
         <div className="container">
           <SectionTitle eyebrow={t('walkin.eyebrow')} title={t('walkin.packagesTitle')} sub={t('walkin.packagesSub')} />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {packages.map((p, i) => (
               <Reveal key={p.name.en} delay={i * 0.07}>
                 <div className={`group flex h-full flex-col rounded-3xl p-7 transition hover:-translate-y-1 ${i === 1 ? 'on-dark bg-navy-700 text-white' : 'card'}`}>

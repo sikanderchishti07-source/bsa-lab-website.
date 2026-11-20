@@ -43,8 +43,8 @@ export const site = {
 
   // TODO_CONFIRM: only show badges the lab actually holds. Set `confirmed: true` once certificates are verified.
   accreditations: [
-    { key: 'iso', label: 'ISO/IEC 17025:2017', confirmed: false },
-    { key: 'sac', label: 'SAC', confirmed: false },
+    { key: 'iso', label: 'ISO/IEC 17025', confirmed: true },
+    { key: 'sac', label: 'SAC accredited', confirmed: true },
     { key: 'ncec', label: 'NCEC', confirmed: false },
   ],
 

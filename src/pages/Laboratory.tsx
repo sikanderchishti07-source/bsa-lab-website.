@@ -2,6 +2,7 @@ import { Atom, Beaker, BookOpen, Cpu, FlaskConical, Inbox, Microscope, ScanLine,
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { PageHero } from '../components/layout/PageHero'
+import { Button } from '../components/ui/Button'
 import { CtaBand } from '../components/layout/CtaBand'
 import { SectionTitle } from '../components/ui/SectionTitle'
 import { Reveal } from '../components/ui/Reveal'
@@ -10,7 +11,7 @@ import { departments, equipment } from '../data/content'
 import { useL } from '../lib/i18n-helpers'
 import { useSeo } from '../hooks/useSeo'
 
-const deptIcons = { organic: FlaskConical, icp: Atom, spectro: ScanLine, micro: Microscope }
+const deptIcons = { organic: FlaskConical, icp: Atom, spectro: ScanLine, general: Beaker, micro: Microscope }
 // TODO_REPLACE: swap these placeholder tiles for real laboratory photos (put files in /public/images/lab and set `src`).
 const gallery: { src?: string; label: string; icon: typeof Beaker; tone: string }[] = [
   { label: 'Sample reception', icon: Inbox, tone: 'from-navy-700 to-navy-500' },
@@ -32,7 +33,10 @@ export default function Laboratory() {
 
       <section className="py-24">
         <div className="container">
-          <SectionTitle eyebrow={t('lab.eyebrow')} title={t('lab.sectionsTitle')} />
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionTitle eyebrow={t('lab.eyebrow')} title={t('lab.sectionsTitle')} />
+            <Reveal><Button to="/tests" variant="navy" arrow>{t('nav.fullCatalogue')}</Button></Reveal>
+          </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {departments.map((d, i) => {
               const I = deptIcons[d.icon]
@@ -105,7 +109,7 @@ export default function Laboratory() {
             <BookOpen className="h-9 w-9 text-lime-500" strokeWidth={1.5} />
             <h2 className="mt-5 text-2xl font-extrabold !text-white">{t('lab.methodsTitle')}</h2>
             <div className="mt-6 grid grid-cols-2 gap-3" dir="ltr">
-              {['EPA 8260', 'EPA 8270', 'EPA 200.7', 'EPA 200.8', 'HACH methods', 'EPA field sampling'].map((m) => <span key={m} className="rounded-xl border border-white/15 bg-white/5 px-3 py-3 text-center text-sm font-semibold">{m}</span>)}
+              {['APHA Standard Methods', 'USEPA 200.8 / 6020B', 'USEPA 8015', 'EPA 1605', 'ISO 10390 / 11265', 'HACH LCK'].map((m) => <span key={m} className="rounded-xl border border-white/15 bg-white/5 px-3 py-3 text-center text-sm font-semibold">{m}</span>)}
             </div>
           </Reveal>
           <Reveal delay={0.16} className="card p-8">

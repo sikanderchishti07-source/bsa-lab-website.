@@ -15,7 +15,9 @@
     "menu": "Menu",
     "close": "Close",
     "skip": "Skip to content",
-    "servicesIntro": "From one bottle of well water to a Kingdom-wide monitoring programme."
+    "servicesIntro": "From one bottle of well water to a Kingdom-wide monitoring programme.",
+    "tests": "Test Catalogue",
+    "fullCatalogue": "Full test catalogue"
   },
   "common": {
     "learnMore": "Learn more",
@@ -45,7 +47,8 @@
     "track": "Track Your Report | BSA.lab",
     "privacy": "Privacy Policy | BSA.lab",
     "terms": "Terms of Use | BSA.lab",
-    "notFound": "Page not found | BSA.lab"
+    "notFound": "Page not found | BSA.lab",
+    "tests": "Test Catalogue & Saudi Limits | BSA.lab"
   },
   "home": {
     "eyebrow": "Environmental Laboratory • Riyadh",
@@ -210,7 +213,7 @@
       "Documented QA/QC on every analytical batch",
       "Regular instrument calibration and maintenance",
       "Participation in proficiency testing schemes",
-      "Methods based on US EPA (8260, 8270, 200.7, 200.8) and HACH procedures"
+      "Methods based on APHA Standard Methods, USEPA, ISO and HACH procedures"
     ]
   },
   "services": {
@@ -269,7 +272,7 @@
   "lab": {
     "eyebrow": "Our laboratory",
     "title": "Inside the BSA.lab laboratory",
-    "sub": "A dedicated environmental laboratory in Riyadh with organic, inorganic, microbiology and sampling departments, built around GC, ICP-MS and HACH instrumentation.",
+    "sub": "A dedicated environmental laboratory in Riyadh, accredited by the Saudi Accreditation Center (SAC), with ICP-MS, spectrophotometry, titration, GC and microbiology sections.",
     "sectionsTitle": "Laboratory departments",
     "sections": [
       {
@@ -429,5 +432,35 @@
     "privacyTitle": "Privacy Policy",
     "termsTitle": "Terms of Use",
     "updated": "Last updated: November 2026"
+  },
+  "tests": {
+    "eyebrow": "Test catalogue",
+    "title": "Every test, method and detection limit",
+    "sub": "Search our full scope of water and soil tests, see which are SAC accredited, and check the Saudi regulatory limits they are compared against.",
+    "statTests": "tests in our scope",
+    "statAcc": "SAC-accredited tests",
+    "statMetals": "metals by ICP-MS",
+    "statDays": "working days, routine turnaround",
+    "tabCatalogue": "Test catalogue",
+    "tabLimits": "Saudi regulatory limits",
+    "search": "Search a test, method or instrument (e.g. lead, BOD, 4500)…",
+    "m_all": "All",
+    "m_water": "Water",
+    "m_soil": "Soil",
+    "accOnly": "Accredited only",
+    "allGroups": "All groups",
+    "showing": "Showing {{n}} of {{total}} tests",
+    "thParam": "Parameter",
+    "thMethod": "Method",
+    "thWater": "Water · unit / LOQ",
+    "thSoil": "Soil · unit / LOQ",
+    "thAcc": "Accredited",
+    "none": "No test matches your search. Contact us, as we may still be able to help.",
+    "note": "LOQ = limit of quantification / reporting limit. Sample containers, preservation and holding times are confirmed when you book. Tests without an accreditation mark are performed in-house but are outside our current SAC scope.",
+    "limitsIntro": "Your results are reported against the Saudi limit that applies to your sample. Choose a scenario to see the limits.",
+    "searchLimits": "Search a parameter…",
+    "limitsNote": "For reference only. Always check the latest official text of the regulation; your permit may set stricter conditions.",
+    "ctaTitle": "Not sure which tests you need?",
+    "ctaSub": "Tell us what the sample is and why it is being tested. We will recommend the right package."
   }
 }

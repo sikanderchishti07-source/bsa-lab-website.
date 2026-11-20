@@ -10,7 +10,7 @@ import { useL } from '../../lib/i18n-helpers'
 export function Footer() {
   const { t, pick, lang } = useL()
   const quick = [
-    ['/about', 'about'], ['/sampling', 'sampling'], ['/laboratory', 'laboratory'], ['/walk-in', 'walkin'],
+    ['/about', 'about'], ['/sampling', 'sampling'], ['/laboratory', 'laboratory'], ['/tests', 'tests'], ['/walk-in', 'walkin'],
     ['/industries', 'industries'], ['/faq', 'faq'], ['/track', 'track'], ['/contact', 'contact'],
   ]
   return (

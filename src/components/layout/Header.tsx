@@ -116,6 +116,9 @@ export function Header() {
                             <Link to="/services" className="relative mt-4 text-sm font-semibold text-lime-500 hover:underline">
                               {t('nav.allServices')} →
                             </Link>
+                            <Link to="/tests" className="relative mt-2 text-sm font-semibold text-white hover:underline">
+                              {t('nav.fullCatalogue')} →
+                            </Link>
                           </div>
                         </div>
                       </motion.div>

@@ -17,6 +17,7 @@ const WalkIn = lazy(() => import('./pages/WalkIn'))
 const Industries = lazy(() => import('./pages/Industries'))
 const Contact = lazy(() => import('./pages/Contact'))
 const FAQ = lazy(() => import('./pages/FAQ'))
+const Tests = lazy(() => import('./pages/Tests'))
 const Track = lazy(() => import('./pages/Track'))
 const Legal = lazy(() => import('./pages/Legal'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -52,6 +53,7 @@ export default function App() {
               <Route path="/industries" element={<Industries />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/tests" element={<Tests />} />
               <Route path="/track" element={<Track />} />
               <Route path="/privacy" element={<Legal kind="privacy" />} />
               <Route path="/terms" element={<Legal kind="terms" />} />

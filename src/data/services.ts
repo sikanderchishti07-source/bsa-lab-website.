@@ -350,3 +350,6 @@ export const services: Service[] = [
 ]
 
 export const getService = (slug?: string) => services.find((s) => s.slug === slug)
+
+/** Card image for a service (public/images/services/<slug>.webp). */
+export const serviceImage = (slug: string) => `${import.meta.env.BASE_URL}images/services/${slug}.webp`

@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, ArrowUpRight, MousePointerClick, Search } from 'lucide-react'
-import { serviceIconMap } from './ServiceIcon'
 import { Button } from '../ui/Button'
-import { services, type Service } from '../../data/services'
+import { services, serviceImage, type Service } from '../../data/services'
 import { catalogue } from '../../data/catalogue'
 import { useL } from '../../lib/i18n-helpers'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
@@ -30,19 +29,23 @@ const ORDER = [
 /* ------------------------------------------------------------------ */
 function ServiceCard({ s, index }: { s: Service; index: number }) {
   const { t, pick } = useL()
-  const Icon = serviceIconMap[s.icon]
   return (
     <Link
       to={`/services/${s.slug}`}
-      className="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-navy-700/10 bg-white p-4 text-start transition-colors duration-300 hover:border-navy-700 hover:bg-navy-700 focus-visible:border-navy-700 xl:p-5"
+      className="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-navy-700/10 bg-white text-start transition-colors duration-300 hover:border-navy-700 hover:bg-navy-700 focus-visible:border-navy-700"
     >
-      <span className="flex items-center justify-between">
-        <span className="font-mono text-[11px] font-medium text-ink-600 transition-colors group-hover:text-white/50">{String(index + 1).padStart(2, '0')}</span>
-        <ArrowUpRight className="h-4 w-4 text-navy-700/30 transition duration-300 group-hover:rotate-45 group-hover:text-lime-500 rtl:-scale-x-100" />
+      <span className="relative block h-[46%] min-h-[64px] shrink-0 overflow-hidden bg-mist-100">
+        <img src={serviceImage(s.slug)} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]" />
+        <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy-900/45 via-navy-900/0 to-navy-900/10" />
+        <span className="absolute start-3 top-3 rounded-md bg-navy-900/60 px-2 py-0.5 font-mono text-[11px] font-medium text-white backdrop-blur-sm">{String(index + 1).padStart(2, '0')}</span>
+        <span className="absolute end-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/90 text-navy-700 transition duration-300 group-hover:rotate-45 group-hover:bg-lime-500">
+          <ArrowUpRight className="h-3.5 w-3.5 rtl:-scale-x-100" />
+        </span>
       </span>
-      <Icon className="mt-3 h-6 w-6 text-leaf-600 transition-colors group-hover:text-lime-500 [@media(max-height:700px)]:mt-2" strokeWidth={1.5} />
-      <span className="mt-auto block pt-3 font-display text-[15px] font-bold leading-snug text-navy-700 transition-colors group-hover:text-white xl:text-base">{pick(s.title)}</span>
-      <span className="mt-1 line-clamp-2 text-[12.5px] leading-snug text-ink-600 transition-colors group-hover:text-white/70 [@media(max-height:760px)]:hidden">{pick(s.short)}</span>
+      <span className="flex min-h-0 flex-1 flex-col justify-center px-4 py-3 xl:px-5">
+        <span className="block font-display text-[15px] font-bold leading-snug text-navy-700 transition-colors group-hover:text-white xl:text-base">{pick(s.title)}</span>
+        <span className="mt-1 line-clamp-2 text-[12.5px] leading-snug text-ink-600 transition-colors group-hover:text-white/70 [@media(max-height:760px)]:hidden">{pick(s.short)}</span>
+      </span>
       <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-leaf-600 to-lime-500 transition-transform duration-500 group-hover:scale-x-100 rtl:origin-right" aria-hidden />
       <span className="sr-only">{t('common.learnMore')}</span>
     </Link>

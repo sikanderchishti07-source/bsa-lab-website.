@@ -3,12 +3,11 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { PageHero } from '../components/layout/PageHero'
 import { CtaBand } from '../components/layout/CtaBand'
-import { ServiceIcon } from '../components/animations/ServiceIcon'
 import { TiltCard } from '../components/ui/TiltCard'
 import { staggerChild, staggerParent } from '../components/ui/Reveal'
 import { Marquee } from '../components/ui/Marquee'
 import { SectionTitle } from '../components/ui/SectionTitle'
-import { services } from '../data/services'
+import { services, serviceImage } from '../data/services'
 import { parametersMarquee } from '../data/content'
 import { useL } from '../lib/i18n-helpers'
 import { useSeo } from '../hooks/useSeo'
@@ -27,9 +26,12 @@ export default function Services() {
               {services.filter((s) => (s.category ?? 'matrix') === cat).map((s, i) => (
                 <motion.li key={s.slug} variants={staggerChild}>
                   <TiltCard className="group h-full rounded-[2rem]">
-                    <Link to={`/services/${s.slug}`} className="card relative flex h-full flex-col gap-6 overflow-hidden rounded-[2rem] p-8 sm:flex-row sm:p-10">
-                      <ServiceIcon icon={s.icon} size="lg" />
-                      <div className="flex-1">
+                    <Link to={`/services/${s.slug}`} className="card relative flex h-full flex-col overflow-hidden rounded-[2rem] sm:flex-row">
+                      <span className="relative block h-48 shrink-0 overflow-hidden sm:h-auto sm:w-[38%]">
+                        <img src={serviceImage(s.slug)} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                        <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent" />
+                      </span>
+                      <div className="flex-1 p-7 sm:p-8">
                         <span className="font-display text-xs font-bold text-leaf-600">0{i + 1}</span>
                         <h2 className="mt-1 text-2xl font-extrabold">{pick(s.title)}</h2>
                         <p className="mt-3 leading-relaxed">{pick(s.short)}</p>

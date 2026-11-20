@@ -157,7 +157,7 @@
       }
     ],
     "report": {
-      "kind": "Certificate of analysis",
+      "kind": "Live lab analysis",
       "title": "Treated effluent compliance",
       "param": "Parameter",
       "result": "Result",
@@ -165,7 +165,8 @@
       "s2": "Analysed in lab",
       "s3": "QA/QC approved",
       "note": "Illustrative example report",
-      "stamp": "Compliant"
+      "stamp": "Compliant",
+      "limit": "Saudi regulatory limit"
     }
   },
   "about": {

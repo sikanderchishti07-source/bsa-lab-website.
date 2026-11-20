@@ -16,6 +16,7 @@ export default {
         display: ['"Plus Jakarta Sans"', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
         sans: ['Inter', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
         arabic: ['"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       backgroundImage: {
         stripes: 'linear-gradient(110deg, #11244C 0%, #11244C 55%, #148A2A 55%, #148A2A 80%, #86B42E 80%)',

@@ -38,9 +38,7 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_35%,rgba(47,111,181,.40),transparent_55%)]" />
         <div className="grain absolute inset-0 -z-10 opacity-40" />
         <WaterHero className="-z-10 opacity-70" />
-        <div className="absolute -end-16 top-[88px] -z-10 hidden h-8 w-[38%] lg:block">
-          <BrandStripes className="justify-end" />
-        </div>
+        <div className="absolute inset-0 -z-10 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_70%_45%,black,transparent_70%)]" aria-hidden />
         <div className="container grid items-center gap-14 pb-24 pt-36 lg:min-h-[92svh] lg:grid-cols-[1.15fr_1fr] lg:pb-28 lg:pt-40 xl:gap-20">
           <div className="max-w-2xl">
             <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/85 backdrop-blur">

@@ -9,9 +9,9 @@ export const site = {
   nameAr: 'شركة بيولوجيكال سيستم اناليسيس',
   url: 'https://www.bsa-lab.sa', // TODO_CONFIRM: final domain
 
-  phone: '+966 54 452 5423',
-  phoneHref: 'tel:+966544525423',
-  whatsappHref: 'https://wa.me/966544525423',
+  phone: '+966 56 573 5215',
+  phoneHref: 'tel:+966565735215',
+  whatsappHref: 'https://wa.me/966565735215',
   email: 'environmental.lab@aecon-sa.com',
 
   addressEn: '2191 Al Masif District, 7521, Riyadh 12467, Kingdom of Saudi Arabia',

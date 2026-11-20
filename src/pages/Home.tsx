@@ -24,7 +24,7 @@ import { useSeo } from '../hooks/useSeo'
 const whyIcons = [Microscope, Users, ShieldCheck, Clock, BadgeCheck, Building2]
 
 export default function Home() {
-  const { t, pick } = useL()
+  const { t, pick, lang } = useL()
   useSeo(t('seo.home'), t('seo.homeDesc'))
   const why = t('home.why', { returnObjects: true }) as { t: string; d: string }[]
   const w1 = t('home.way1Points', { returnObjects: true }) as string[]
@@ -94,15 +94,10 @@ export default function Home() {
             <ArrowUpRight className="h-4 w-4" />
           </a>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {site.accreditations
-              .filter((a) => a.confirmed || site.showUnconfirmed)
-              .map((a) => (
-                <span key={a.key} className={`flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold text-navy-700 ${a.confirmed ? 'border-navy-700/15 bg-mist-50' : 'border-dashed border-navy-700/25'}`}>
-                  <BadgeCheck className="h-4 w-4 text-leaf-600" />
-                  {a.label}
-                  {!a.confirmed && <Pending />}
-                </span>
-              ))}
+            <span className="flex items-center gap-2 rounded-full border border-navy-700/15 bg-mist-50 px-4 py-2 text-xs font-bold text-navy-700">
+              <BadgeCheck className="h-4 w-4 text-leaf-600" />
+              {site.accreditation[lang]}
+            </span>
           </div>
         </div>
       </section>

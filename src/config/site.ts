@@ -41,12 +41,13 @@ export const site = {
     { key: 'regions', value: 13, suffix: '', todo: true },
   ],
 
-  // TODO_CONFIRM: only show badges the lab actually holds. Set `confirmed: true` once certificates are verified.
-  accreditations: [
-    { key: 'iso', label: 'ISO/IEC 17025', confirmed: true },
-    { key: 'sac', label: 'SAC accredited', confirmed: true },
-    { key: 'ncec', label: 'NCEC', confirmed: false },
-  ],
+  // SAC application for ISO/IEC 17025 is in progress (not yet granted). Do NOT claim "accredited"
+  // until the certificate is issued; then switch status to 'granted' and update the wording.
+  accreditation: {
+    status: 'in-progress' as 'in-progress' | 'granted',
+    en: 'ISO/IEC 17025 · SAC accreditation in progress',
+    ar: 'الأيزو 17025 · الاعتماد من المركز السعودي للاعتماد قيد الإجراء',
+  },
 
   // TODO_REPLACE: real social profile links
   social: { linkedin: '#', x: '#', instagram: '#' },

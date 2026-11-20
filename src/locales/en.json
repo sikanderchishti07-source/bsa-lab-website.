@@ -54,7 +54,7 @@
     "eyebrow": "Environmental Laboratory • Riyadh",
     "title1": "Accurate environmental testing",
     "title2": "for a sustainable Saudi Arabia",
-    "sub": "Water, wastewater, soil, sludge and marine testing, from on-site sampling to certified laboratory reports. Based in Riyadh, serving the entire Kingdom.",
+    "sub": "Water, wastewater, soil, sludge and marine testing, from on-site sampling to signed laboratory reports. Based in Riyadh, serving the entire Kingdom.",
     "heroCard1": "Sample received",
     "heroCard2": "COD analysis • in progress",
     "heroCard3": "Report issued",
@@ -86,7 +86,7 @@
         "d": "Blanks, duplicates and reference standards are checked before results are released."
       },
       {
-        "t": "Certified report",
+        "t": "Signed report",
         "d": "You receive a signed PDF report that compares results against the applicable limits."
       }
     ],
@@ -272,7 +272,7 @@
   "lab": {
     "eyebrow": "Our laboratory",
     "title": "Inside the BSA.lab laboratory",
-    "sub": "A dedicated environmental laboratory in Riyadh, accredited by the Saudi Accreditation Center (SAC), with ICP-MS, spectrophotometry, titration, GC and microbiology sections.",
+    "sub": "A dedicated environmental laboratory in Riyadh working to ISO/IEC 17025, with ICP-MS, spectrophotometry, titration, GC and microbiology sections. SAC accreditation is in progress.",
     "sectionsTitle": "Laboratory departments",
     "sections": [
       {
@@ -436,9 +436,9 @@
   "tests": {
     "eyebrow": "Test catalogue",
     "title": "Every test, method and detection limit",
-    "sub": "Search our full scope of water and soil tests, see which are SAC accredited, and check the Saudi regulatory limits they are compared against.",
+    "sub": "Search our full scope of water and soil tests and check the Saudi regulatory limits they are compared against.",
     "statTests": "tests in our scope",
-    "statAcc": "SAC-accredited tests",
+    "statAcc": "tests in our SAC accreditation application",
     "statMetals": "metals by ICP-MS",
     "statDays": "working days, routine turnaround",
     "tabCatalogue": "Test catalogue",
@@ -447,20 +447,21 @@
     "m_all": "All",
     "m_water": "Water",
     "m_soil": "Soil",
-    "accOnly": "Accredited only",
+    "accOnly": "In accreditation scope",
     "allGroups": "All groups",
     "showing": "Showing {{n}} of {{total}} tests",
     "thParam": "Parameter",
     "thMethod": "Method",
     "thWater": "Water · unit / LOQ",
     "thSoil": "Soil · unit / LOQ",
-    "thAcc": "Accredited",
+    "thAcc": "SAC scope",
     "none": "No test matches your search. Contact us, as we may still be able to help.",
-    "note": "LOQ = limit of quantification / reporting limit. Sample containers, preservation and holding times are confirmed when you book. Tests without an accreditation mark are performed in-house but are outside our current SAC scope.",
+    "note": "LOQ = limit of quantification / reporting limit. \"Applied\" marks tests included in our ISO/IEC 17025 accreditation application to the Saudi Accreditation Center (SAC), which is in progress. Sample containers, preservation and holding times are confirmed when you book.",
     "limitsIntro": "Your results are reported against the Saudi limit that applies to your sample. Choose a scenario to see the limits.",
     "searchLimits": "Search a parameter…",
     "limitsNote": "For reference only. Always check the latest official text of the regulation; your permit may set stricter conditions.",
     "ctaTitle": "Not sure which tests you need?",
-    "ctaSub": "Tell us what the sample is and why it is being tested. We will recommend the right package."
+    "ctaSub": "Tell us what the sample is and why it is being tested. We will recommend the right package.",
+    "scopeBadge": "Applied"
   }
 }

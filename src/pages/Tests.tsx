@@ -150,7 +150,7 @@ export default function Tests() {
                             </td>
                           ))}
                           <td className="px-5 py-3.5 align-top">
-                            {c.accredited ? <span className="inline-flex items-center gap-1 rounded-full bg-leaf-600/10 px-2.5 py-1 text-xs font-semibold text-leaf-700"><BadgeCheck className="h-3.5 w-3.5" />SAC</span> : <span className="text-xs text-ink-600/60">—</span>}
+                            {c.accredited ? <span className="inline-flex items-center gap-1 rounded-full bg-leaf-600/10 px-2.5 py-1 text-xs font-semibold text-leaf-700"><BadgeCheck className="h-3.5 w-3.5" />{t('tests.scopeBadge')}</span> : <span className="text-xs text-ink-600/60">—</span>}
                           </td>
                         </tr>
                       ))}
@@ -167,7 +167,7 @@ export default function Tests() {
                           <p className="font-semibold text-navy-700">{c.param}</p>
                           <p className="mt-0.5 text-xs">{c.instrument}</p>
                         </div>
-                        {c.accredited && <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-leaf-600/10 px-2 py-0.5 text-[11px] font-semibold text-leaf-700"><BadgeCheck className="h-3 w-3" />SAC</span>}
+                        {c.accredited && <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-leaf-600/10 px-2 py-0.5 text-[11px] font-semibold text-leaf-700"><BadgeCheck className="h-3 w-3" />{t('tests.scopeBadge')}</span>}
                       </div>
                       <p className="mt-2 font-mono text-[11px] text-ink-800">{c.method}</p>
                       <div className="mt-2 flex flex-wrap gap-2 font-mono text-[11px]">

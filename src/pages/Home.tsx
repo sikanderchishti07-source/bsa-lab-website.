@@ -29,7 +29,7 @@ export default function Home() {
   const why = t('home.why', { returnObjects: true }) as { t: string; d: string }[]
   const w1 = t('home.way1Points', { returnObjects: true }) as string[]
   const w2 = t('home.way2Points', { returnObjects: true }) as string[]
-  const heroServices = services.filter((s) => s.slug !== 'field-sampling')
+  const heroServices = services.filter((s) => s.slug !== 'field-sampling' && s.category !== 'program')
 
   return (
     <>

@@ -3,7 +3,11 @@ import type { Bi } from '../lib/i18n-helpers'
 export type ParamGroup = { title: Bi; items: string[] }
 export type Service = {
   slug: string
-  icon: 'droplet' | 'factory' | 'sprout' | 'layers' | 'waves' | 'mountain' | 'flask'
+  icon: 'droplet' | 'factory' | 'sprout' | 'layers' | 'waves' | 'mountain' | 'flask' | 'fan' | 'pipe' | 'pool' | 'calendar'
+  /** 'matrix' = testing by sample type; 'program' = compliance & monitoring programmes */
+  category?: 'matrix' | 'program'
+  /** Regulatory-limit scenario (from data/limits.ts) shown on the detail page */
+  limitScenario?: string
   title: Bi
   short: Bi
   overview: Bi
@@ -20,6 +24,7 @@ const ta = { en: '6 working days (urgent service on request)', ar: '6 أيام �
 export const services: Service[] = [
   {
     slug: 'water-testing',
+    limitScenario: 'Unbottled drinking water',
     icon: 'droplet',
     title: { en: 'Water Testing', ar: 'تحليل المياه' },
     short: { en: 'Drinking, well, irrigation, process and pool water analysed against Saudi limits.', ar: 'تحليل مياه الشرب والآبار والري والعمليات الصناعية والمسابح وفق الحدود السعودية.' },
@@ -52,6 +57,7 @@ export const services: Service[] = [
   },
   {
     slug: 'wastewater-stp-testing',
+    limitScenario: 'Discharge to soil/land or surface waters',
     icon: 'factory',
     title: { en: 'Wastewater & STP Testing', ar: 'تحليل مياه الصرف ومحطات المعالجة' },
     short: { en: 'Influent, effluent and TSE monitoring for STP performance and reuse compliance.', ar: 'مراقبة المياه الداخلة والخارجة والمياه المعالجة لتقييم أداء المحطات ومطابقة اشتراطات إعادة الاستخدام.' },
@@ -83,6 +89,7 @@ export const services: Service[] = [
   },
   {
     slug: 'soil-testing',
+    limitScenario: 'Soil protection / contaminated-site screening',
     icon: 'sprout',
     title: { en: 'Soil Testing', ar: 'تحليل التربة' },
     short: { en: 'Environmental and agricultural soil analysis, from contamination to fertility.', ar: 'تحليل التربة بيئياً وزراعياً، من التلوث إلى الخصوبة.' },
@@ -198,6 +205,120 @@ export const services: Service[] = [
     },
     turnaround: ta,
     related: ['water-testing', 'soil-testing', 'field-sampling'],
+  },
+  {
+    slug: 'legionella-cooling-tower',
+    category: 'program',
+    icon: 'fan',
+    title: { en: 'Legionella & Cooling Tower Testing', ar: 'تحليل الليجيونيلا وأبراج التبريد' },
+    short: { en: 'Routine Legionella and bacteria monitoring for cooling towers, hot-water systems and fountains.', ar: 'رصد دوري لبكتيريا الليجيونيلا وغيرها في أبراج التبريد وأنظمة المياه الساخنة والنوافير.' },
+    overview: {
+      en: 'Cooling towers, hot-water loops, humidifiers and decorative fountains can grow Legionella, the bacterium behind Legionnaires\u2019 disease. Hospitals, hotels, malls and industrial sites need regular sampling to show their water systems are under control. We collect the samples, culture Legionella by EPA Method 1605 and report the bacteria that indicate how well the system is being treated.',
+      ar: 'قد تنمو بكتيريا الليجيونيلا المسببة لداء الفيالقة في أبراج التبريد ودوائر المياه الساخنة وأجهزة الترطيب والنوافير. وتحتاج المستشفيات والفنادق والمراكز التجارية والمواقع الصناعية إلى أخذ عينات دورية لإثبات أن أنظمة المياه لديها تحت السيطرة. نجمع العينات ونزرع الليجيونيلا وفق الطريقة EPA 1605، ونقدم تقريراً بالبكتيريا التي تبين مدى فعالية معالجة النظام.',
+    },
+    scope: { en: 'Cooling towers & condenser water • Hot & cold water systems • Hospitals and care facilities • Hotels, malls & compounds • Fountains, spas & humidifiers', ar: 'أبراج التبريد ومياه المكثفات • أنظمة المياه الساخنة والباردة • المستشفيات ومرافق الرعاية • الفنادق والمراكز التجارية والمجمعات • النوافير والمنتجعات وأجهزة الترطيب' },
+    whoNeeds: [
+      { en: 'Facility & FM managers', ar: 'مديرو المرافق وإدارة المنشآت' },
+      { en: 'Hospitals and clinics', ar: 'المستشفيات والعيادات' },
+      { en: 'Hotels, malls and compounds', ar: 'الفنادق والمراكز التجارية والمجمعات' },
+      { en: 'Water treatment & HVAC contractors', ar: 'مقاولو معالجة المياه والتكييف' },
+    ],
+    params: [
+      { title: { en: 'Microbiology', ar: 'الميكروبيولوجي' }, items: ['Legionella (EPA 1605)', 'Heterotrophic plate count', 'Pseudomonas aeruginosa', 'Total coliforms', 'E. coli'] },
+      { title: { en: 'Treatment control', ar: 'ضبط المعالجة' }, items: ['pH', 'Conductivity (EC)', 'Turbidity', 'Free chlorine', 'Total hardness', 'Total alkalinity', 'Chloride'] },
+      { title: { en: 'Corrosion & scaling', ar: 'التآكل والترسبات' }, items: ['Iron (Fe)', 'Copper (Cu)', 'Zinc (Zn)', 'Silica', 'Calcium hardness'] },
+    ],
+    sampling: {
+      en: 'Samples are taken in sterile bottles with sodium thiosulfate to neutralise biocide, from the basin, return line and outlets, then kept cool and delivered to the lab the same day.',
+      ar: 'تُجمع العينات في عبوات معقمة تحتوي على ثيوكبريتات الصوديوم لمعادلة المبيد الحيوي، من الحوض وخط الرجوع ومخارج المياه، ثم تُحفظ باردة وتُسلَّم إلى المختبر في اليوم نفسه.',
+    },
+    turnaround: { en: 'Legionella culture needs up to 10 days of incubation; other tests 6 working days', ar: 'تحتاج زراعة الليجيونيلا حتى 10 أيام حضانة، وبقية التحاليل 6 أيام عمل' }, // TODO_CONFIRM
+    related: ['pool-recreational-water', 'water-testing', 'monitoring-programmes'],
+  },
+  {
+    slug: 'sewer-discharge-compliance',
+    category: 'program',
+    icon: 'pipe',
+    limitScenario: 'Discharge to municipal sewer',
+    title: { en: 'Sewer Discharge Compliance', ar: 'مطابقة التصريف إلى شبكة الصرف' },
+    short: { en: 'Testing for restaurants, factories and commercial sites discharging wastewater to the public sewer.', ar: 'تحاليل للمطاعم والمصانع والمنشآت التجارية التي تصرف مياهها إلى شبكة الصرف العامة.' },
+    overview: {
+      en: 'Saudi law requires commercial and industrial sites to pre-treat wastewater that does not meet sewer-discharge standards before it enters the public network. We test your discharge against the commercial wastewater limits for oil and grease, organic load, sulfide and metals, so you can prove compliance, size your grease trap or treatment unit, and avoid violations.',
+      ar: 'يُلزم النظام السعودي المنشآت التجارية والصناعية بمعالجة مياه الصرف غير المطابقة لمعايير التصريف قبل دخولها الشبكة العامة. نحلل مياه التصريف لديك وفق حدود مياه الصرف التجارية للزيوت والشحوم والحمل العضوي والكبريتيد والمعادن، لتثبت المطابقة وتحدد حجم مصيدة الشحوم أو وحدة المعالجة وتتجنب المخالفات.',
+    },
+    scope: { en: 'Restaurants & central kitchens (grease traps) • Car washes & workshops • Factories & industrial pre-treatment • Hospitals & laboratories • Labour camps & compounds', ar: 'المطاعم والمطابخ المركزية (مصائد الشحوم) • مغاسل السيارات والورش • المصانع ووحدات المعالجة الأولية • المستشفيات والمختبرات • سكن العمال والمجمعات' },
+    whoNeeds: [
+      { en: 'Restaurant and food chains', ar: 'سلاسل المطاعم والأغذية' },
+      { en: 'Factories with process wastewater', ar: 'المصانع ذات مياه العمليات' },
+      { en: 'Facility managers and landlords', ar: 'مديرو المرافق والملاك' },
+      { en: 'Environmental consultants', ar: 'الاستشاريون البيئيون' },
+    ],
+    params: [
+      { title: { en: 'Key sewer parameters', ar: 'أهم معايير الصرف' }, items: ['pH', 'BOD', 'COD', 'Oil & grease (FOG)', 'Sulfide', 'Chloride', 'Sulfate'] },
+      { title: { en: 'Metals · ICP-MS', ar: 'المعادن · ICP-MS' }, items: ['Aluminium', 'Arsenic', 'Barium', 'Boron', 'Cadmium', 'Chromium', 'Cobalt', 'Copper', 'Iron', 'Lead', 'Lithium', 'Manganese', 'Molybdenum', 'Nickel', 'Vanadium', 'Zinc'] },
+      { title: { en: 'Other', ar: 'أخرى' }, items: ['Cyanide', 'Fluoride', 'Phenols', 'TPH'] },
+    ],
+    sampling: {
+      en: 'We sample at the final inspection chamber before the sewer connection, as a grab or flow-composited sample. FOG is collected in a dedicated glass bottle.',
+      ar: 'نأخذ العينة من غرفة التفتيش الأخيرة قبل التوصيل بالشبكة، لحظية أو مركبة حسب التدفق، وتُجمع عينة الزيوت والشحوم في عبوة زجاجية مخصصة.',
+    },
+    turnaround: ta,
+    related: ['wastewater-stp-testing', 'monitoring-programmes', 'field-sampling'],
+  },
+  {
+    slug: 'pool-recreational-water',
+    category: 'program',
+    icon: 'pool',
+    title: { en: 'Swimming Pool & Recreational Water', ar: 'مياه المسابح والمياه الترفيهية' },
+    short: { en: 'Disinfection and hygiene checks for pools, spas, splash pads and water features.', ar: 'فحص التطهير والنظافة للمسابح والمنتجعات وألعاب المياه والنوافير.' },
+    overview: {
+      en: 'Pools and spas used by the public must stay properly disinfected and free of harmful bacteria. We check chlorine, pH and clarity together with the bacteria that matter for bathers, and help operators set up a simple routine testing schedule.',
+      ar: 'يجب أن تبقى المسابح والمنتجعات المستخدمة من الجمهور مطهرة جيداً وخالية من البكتيريا الضارة. نفحص الكلور والأس الهيدروجيني والصفاء مع البكتيريا المهمة لسلامة السباحين، ونساعد المشغلين على وضع جدول فحص دوري بسيط.',
+    },
+    scope: { en: 'Hotel & compound pools • Gyms & clubs • Spas & jacuzzis • Splash pads & water parks • Decorative fountains', ar: 'مسابح الفنادق والمجمعات • الأندية والصالات الرياضية • المنتجعات والجاكوزي • ألعاب المياه والحدائق المائية • النوافير الزخرفية' },
+    whoNeeds: [
+      { en: 'Hotels and residential compounds', ar: 'الفنادق والمجمعات السكنية' },
+      { en: 'Sports clubs and gyms', ar: 'الأندية والصالات الرياضية' },
+      { en: 'Pool maintenance companies', ar: 'شركات صيانة المسابح' },
+      { en: 'Schools and universities', ar: 'المدارس والجامعات' },
+    ],
+    params: [
+      { title: { en: 'Disinfection & clarity', ar: 'التطهير والصفاء' }, items: ['Free chlorine', 'pH', 'Turbidity', 'Conductivity (EC)', 'Total alkalinity', 'Calcium hardness'] },
+      { title: { en: 'Microbiology', ar: 'الميكروبيولوجي' }, items: ['Heterotrophic plate count', 'Total coliforms', 'E. coli', 'Pseudomonas aeruginosa', 'Enterococci', 'Legionella (spas)'] },
+    ],
+    sampling: {
+      en: 'Samples are taken about 30 cm below the surface away from inlets, in sterile thiosulfate bottles for microbiology. Free chlorine and pH are best measured on site.',
+      ar: 'تُؤخذ العينات على عمق 30 سم تقريباً من السطح بعيداً عن فتحات الدخول، في عبوات معقمة بالثيوكبريتات لتحاليل الميكروبيولوجي، ويُفضل قياس الكلور الحر والأس الهيدروجيني في الموقع.',
+    },
+    turnaround: ta,
+    related: ['legionella-cooling-tower', 'water-testing', 'field-sampling'],
+  },
+  {
+    slug: 'monitoring-programmes',
+    category: 'program',
+    icon: 'calendar',
+    title: { en: 'Periodic Monitoring Programmes', ar: 'برامج الرصد الدوري' },
+    short: { en: 'Scheduled sampling and testing contracts that keep your environmental permit and reports on track.', ar: 'عقود جمع عينات وتحاليل مجدولة تحافظ على تصريحك البيئي وتقاريرك في موعدها.' },
+    overview: {
+      en: 'Facilities with an environmental permit are expected to monitor their discharges and report periodically to the National Center for Environmental Compliance (NCEC). We set up a monitoring calendar for your site, sample on schedule, and deliver consistent reports each round. AECON\u2019s consultants can turn the data into your periodic compliance report.',
+      ar: 'يُتوقع من المنشآت الحاصلة على تصريح بيئي رصد تصريفاتها ورفع تقارير دورية إلى المركز الوطني للرقابة على الالتزام البيئي. نضع تقويم رصد لموقعك، ونجمع العينات في مواعيدها، ونسلّم تقارير متسقة في كل جولة، ويمكن لاستشاريي إيكون تحويل البيانات إلى تقرير الالتزام الدوري.',
+    },
+    scope: { en: 'Monthly, quarterly or annual sampling plans • STP and effluent monitoring • Groundwater well networks • Soil & site monitoring • Trend reports across rounds', ar: 'خطط جمع عينات شهرية أو ربع سنوية أو سنوية • رصد محطات المعالجة والمياه الخارجة • شبكات آبار المياه الجوفية • رصد التربة والمواقع • تقارير الاتجاهات عبر الجولات' },
+    whoNeeds: [
+      { en: 'Permitted industrial facilities', ar: 'المنشآت الصناعية الحاصلة على تصاريح' },
+      { en: 'STP and utility operators', ar: 'مشغلو محطات المعالجة والمرافق' },
+      { en: 'Construction & giga-project sites', ar: 'مواقع الإنشاءات والمشاريع الكبرى' },
+      { en: 'HSE and compliance managers', ar: 'مديرو الصحة والسلامة والالتزام' },
+    ],
+    params: [
+      { title: { en: 'Built around your permit', ar: 'مبنية على تصريحك' }, items: ['Effluent: pH, BOD, COD, FOG, nutrients', 'Metals by ICP-MS', 'Microbiology', 'Groundwater field parameters', 'Soil metals & hydrocarbons'] },
+    ],
+    sampling: {
+      en: 'Each round follows the same sampling points, methods and chain of custody, so results are comparable over time.',
+      ar: 'تتبع كل جولة نقاط الجمع والطرق وسلسلة الحيازة نفسها، لتكون النتائج قابلة للمقارنة مع الوقت.',
+    },
+    turnaround: ta,
+    related: ['sewer-discharge-compliance', 'wastewater-stp-testing', 'groundwater-testing'],
   },
   {
     slug: 'field-sampling',

@@ -1,4 +1,4 @@
-import { CheckCircle2, Clock, MapPin, Navigation, Package } from 'lucide-react'
+import { CheckCircle2, Clock, FlaskConical, MapPin, Navigation, Package, XCircle } from 'lucide-react'
 import { PageHero } from '../components/layout/PageHero'
 import { CtaBand } from '../components/layout/CtaBand'
 import { SectionTitle } from '../components/ui/SectionTitle'
@@ -57,6 +57,28 @@ export default function WalkIn() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pt-24">
+        <div className="container grid gap-6 lg:grid-cols-2">
+          <Reveal>
+            <div className="card h-full p-8">
+              <h2 className="flex items-center gap-3 text-2xl font-extrabold"><FlaskConical className="h-7 w-7 text-leaf-600" />{t('walkin.bottlesTitle')}</h2>
+              <ul className="mt-6 space-y-3">
+                {(t('walkin.bottles', { returnObjects: true }) as string[]).map((b) => <li key={b} className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-leaf-600" />{b}</li>)}
+              </ul>
+              <p className="mt-6 rounded-xl bg-aqua-100 p-4 text-sm text-navy-700">{t('walkin.afterHours')}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="h-full rounded-2xl border border-red-200 bg-red-50/60 p-8">
+              <h2 className="flex items-center gap-3 text-2xl font-extrabold"><XCircle className="h-7 w-7 text-red-600" />{t('walkin.rejectTitle')}</h2>
+              <ul className="mt-6 space-y-3">
+                {(t('walkin.reject', { returnObjects: true }) as string[]).map((b) => <li key={b} className="flex items-start gap-3 text-ink-800"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" />{b}</li>)}
+              </ul>
             </div>
           </Reveal>
         </div>

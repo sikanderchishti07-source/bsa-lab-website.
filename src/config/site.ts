@@ -19,7 +19,7 @@ export const site = {
   mapEmbed: 'https://www.google.com/maps?q=Al+Masif,+Riyadh+12467&output=embed', // TODO_CONFIRM: exact pin
   mapDirections: 'https://www.google.com/maps/dir/?api=1&destination=Al+Masif+Riyadh+12467',
 
-  hours: { en: 'Sunday – Thursday, 8:00 AM – 5:00 PM', ar: 'الأحد – الخميس، 8:00 ص – 5:00 م' },
+  hours: { en: 'Six days a week · after-hours sample drop-off available', ar: 'ستة أيام في الأسبوع · استلام العينات متاح بعد الدوام' }, // TODO_CONFIRM exact days and times
 
   parent: {
     nameEn: 'AECON – Alemad Alarabi Environmental Consultancy',

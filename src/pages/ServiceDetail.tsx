@@ -1,13 +1,14 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, CheckCircle2, ClipboardList, Clock, Search, Users } from 'lucide-react'
+import { ArrowUpRight, CheckCircle2, ClipboardList, Clock, Scale, Search, Users } from 'lucide-react'
 import { PageHero } from '../components/layout/PageHero'
 import { CtaBand } from '../components/layout/CtaBand'
 import { ServiceIcon } from '../components/animations/ServiceIcon'
 import { Reveal } from '../components/ui/Reveal'
 import { Button } from '../components/ui/Button'
 import { getService, services } from '../data/services'
+import { limits } from '../data/limits'
 import { useL } from '../lib/i18n-helpers'
 import { useSeo } from '../hooks/useSeo'
 import NotFound from './NotFound'
@@ -19,6 +20,7 @@ export default function ServiceDetail() {
   const [q, setQ] = useState('')
   useSeo(s ? `${pick(s.title)} | BSA.lab Riyadh` : t('seo.notFound'), s ? pick(s.short) : undefined)
   const groups = useMemo(() => (s ? s.params.map((g) => ({ ...g, items: g.items.filter((i) => i.toLowerCase().includes(q.toLowerCase())) })).filter((g) => g.items.length) : []), [s, q])
+  const scenarioLimits = s?.limitScenario ? limits.filter((l) => l.scenario === s.limitScenario) : []
   if (!s) return <NotFound />
 
   return (
@@ -95,6 +97,34 @@ export default function ServiceDetail() {
           </Reveal>
         </div>
       </section>
+
+      {scenarioLimits.length > 0 && (
+        <section className="pt-20">
+          <div className="container">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <span className="eyebrow"><Scale className="h-4 w-4" />{t('services.limitsEyebrow')}</span>
+                <h2 className="mt-3 text-3xl font-extrabold">{t('services.limitsTitle')}</h2>
+                <p className="mt-2 text-ink-600" dir="ltr">{scenarioLimits[0].source}</p>
+              </div>
+              <Button to="/tests" variant="ghost" arrow>{t('nav.fullCatalogue')}</Button>
+            </div>
+            <Reveal className="mt-8">
+              <div className="overflow-x-auto rounded-2xl border border-navy-700/10 bg-white shadow-card">
+                <table className="w-full min-w-[520px] text-sm" dir="ltr">
+                  <thead className="bg-navy-700 text-white"><tr>{['Parameter', 'Limit', 'Unit'].map((h) => <th key={h} className="px-5 py-3 text-start text-xs font-semibold uppercase tracking-wide">{h}</th>)}</tr></thead>
+                  <tbody className="divide-y divide-navy-700/[0.07]">
+                    {scenarioLimits.slice(0, 12).map((l, i) => (
+                      <tr key={i} className="hover:bg-aqua-100/50"><th scope="row" className="px-5 py-3 text-start font-semibold text-navy-700">{l.param}</th><td className="px-5 py-3 font-mono text-xs">{l.limit}</td><td className="px-5 py-3 font-mono text-xs">{l.unit}</td></tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </Reveal>
+            <p className="mt-3 text-xs text-ink-600">{t('tests.limitsNote')}{scenarioLimits.length > 12 ? ` ${t('services.limitsMore', { n: scenarioLimits.length - 12 })}` : ''}</p>
+          </div>
+        </section>
+      )}
 
       <section className="py-20">
         <div className="container">

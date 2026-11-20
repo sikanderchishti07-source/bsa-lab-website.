@@ -231,7 +231,14 @@
     "related": "Related services",
     "ctaTitle": "Ready to test?",
     "ctaSub": "Tell us what you need to test and we'll send a clear quote.",
-    "notFound": "Service not found"
+    "notFound": "Service not found",
+    "groupMatrix": "Testing by sample type",
+    "groupMatrixSub": "Water, wastewater, soil, sludge, marine and groundwater, analysed in our own laboratory.",
+    "groupProgram": "Compliance & monitoring programmes",
+    "groupProgramSub": "Ready-made testing programmes built around Saudi regulations and the problems our clients face most.",
+    "limitsEyebrow": "Saudi limits",
+    "limitsTitle": "Limits your results are compared against",
+    "limitsMore": "{{n}} more parameters are listed in the Test Catalogue."
   },
   "sampling": {
     "eyebrow": "Field services",
@@ -336,7 +343,23 @@
     },
     "packagesTitle": "Popular packages",
     "packagesSub": "Prices on request. Ask our reception team for current rates.",
-    "visitTitle": "Visit us"
+    "visitTitle": "Visit us",
+    "bottlesTitle": "Bottles we provide",
+    "bottles": [
+      "125 mL plastic bottle for turbidity",
+      "500 mL plastic bottle for metals, acidified with nitric acid to pH 2",
+      "1 L plastic bottle for routine inorganic tests",
+      "Special bottles for BOD and other non-routine tests"
+    ],
+    "rejectTitle": "We can’t accept a sample when",
+    "reject": [
+      "It is not clearly labelled",
+      "The bottle is broken or leaking",
+      "It was not kept cold (at or below 6 °C)",
+      "There is not enough sample for the tests requested",
+      "A metals bottle has not been acidified to pH 2"
+    ],
+    "afterHours": "Arriving outside working hours? Our resident technician receives samples so they are stored correctly until analysis."
   },
   "industries": {
     "eyebrow": "Industries we serve",

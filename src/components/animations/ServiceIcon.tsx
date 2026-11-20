@@ -1,7 +1,7 @@
-import { Droplet, Factory, FlaskConical, Layers, Mountain, Sprout, Waves } from 'lucide-react'
+import { CalendarCheck, Droplet, Factory, Fan, FlaskConical, Layers, LifeBuoy, Mountain, Spline, Sprout, Waves } from 'lucide-react'
 import type { Service } from '../../data/services'
 
-const map = { droplet: Droplet, factory: Factory, sprout: Sprout, layers: Layers, waves: Waves, mountain: Mountain, flask: FlaskConical }
+const map = { droplet: Droplet, factory: Factory, sprout: Sprout, layers: Layers, waves: Waves, mountain: Mountain, flask: FlaskConical, fan: Fan, pipe: Spline, pool: LifeBuoy, calendar: CalendarCheck }
 
 /** Icon tile where "liquid" rises inside on hover of the parent `.group`. */
 export function ServiceIcon({ icon, size = 'md' }: { icon: Service['icon']; size?: 'md' | 'lg' }) {

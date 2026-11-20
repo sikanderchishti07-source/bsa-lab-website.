@@ -25,9 +25,9 @@ export const faqs: { q: Bi; a: Bi; todo?: boolean }[] = [
 ]
 
 export const holdTimes: { test: Bi; container: Bi; keep: Bi; max: Bi }[] = [
-  { test: { en: 'Drinking / well water: bacteria', ar: 'مياه الشرب / الآبار: البكتيريا' }, container: { en: 'Sterile bottle from BSA (250 mL)', ar: 'عبوة معقمة من BSA (250 مل)' }, keep: { en: 'Fridge or cool box, 2–8 °C', ar: 'ثلاجة أو صندوق مبرد، 2–8 °م' }, max: { en: '24 hours', ar: '24 ساعة' } },
+  { test: { en: 'Drinking / well water: bacteria', ar: 'مياه الشرب / الآبار: البكتيريا' }, container: { en: 'Sterile bottle from BSA (250 mL)', ar: 'عبوة معقمة من BSA (250 مل)' }, keep: { en: 'Fridge or cool box, ≤ 6 °C', ar: 'ثلاجة أو صندوق مبرد، 6 °م أو أقل' }, max: { en: '24 hours', ar: '24 ساعة' } },
   { test: { en: 'Drinking / well water: chemistry', ar: 'مياه الشرب / الآبار: كيميائي' }, container: { en: 'Clean plastic bottle (1 L)', ar: 'عبوة بلاستيكية نظيفة (1 لتر)' }, keep: { en: 'Cool, out of sunlight', ar: 'مكان بارد بعيداً عن الشمس' }, max: { en: '48 hours', ar: '48 ساعة' } },
-  { test: { en: 'Wastewater (BOD, COD, nutrients)', ar: 'مياه الصرف (BOD وCOD والمغذيات)' }, container: { en: 'Plastic bottle (1–2 L)', ar: 'عبوة بلاستيكية (1–2 لتر)' }, keep: { en: 'Cool box with ice, 2–6 °C', ar: 'صندوق مبرد مع ثلج، 2–6 °م' }, max: { en: '24 hours', ar: '24 ساعة' } },
+  { test: { en: 'Wastewater (BOD, COD, nutrients)', ar: 'مياه الصرف (BOD وCOD والمغذيات)' }, container: { en: 'Plastic bottle (1–2 L)', ar: 'عبوة بلاستيكية (1–2 لتر)' }, keep: { en: 'Cool box with ice, ≤ 6 °C', ar: 'صندوق مبرد مع ثلج، 6 °م أو أقل' }, max: { en: '24 hours', ar: '24 ساعة' } },
   { test: { en: 'Soil (agricultural)', ar: 'التربة (زراعية)' }, container: { en: 'Clean zip bag (~1 kg)', ar: 'كيس محكم نظيف (~1 كغ)' }, keep: { en: 'Dry, shaded place', ar: 'مكان جاف ومظلل' }, max: { en: '7 days', ar: '7 أيام' } },
   { test: { en: 'Soil (oil / hydrocarbons)', ar: 'التربة (زيوت / هيدروكربونات)' }, container: { en: 'Glass jar from BSA', ar: 'برطمان زجاجي من BSA' }, keep: { en: 'Cool box, 4 °C', ar: 'صندوق مبرد، 4 °م' }, max: { en: '48 hours', ar: '48 ساعة' } },
   { test: { en: 'Sludge', ar: 'الحمأة' }, container: { en: 'Wide-mouth jar (~500 g)', ar: 'برطمان واسع الفوهة (~500 غ)' }, keep: { en: 'Cool box, 4 °C', ar: 'صندوق مبرد، 4 °م' }, max: { en: '24–48 hours', ar: '24–48 ساعة' } },

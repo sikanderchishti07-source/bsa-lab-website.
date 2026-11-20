@@ -39,7 +39,7 @@ export default function Home() {
         <div className="grain absolute inset-0 -z-10 opacity-40" />
         <WaterHero className="-z-10 opacity-70" />
         <div className="absolute inset-0 -z-10 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_70%_45%,black,transparent_70%)]" aria-hidden />
-        <div className="container grid items-center gap-14 pb-24 pt-36 lg:min-h-[92svh] lg:grid-cols-[1.15fr_1fr] lg:pb-28 lg:pt-40 xl:gap-20">
+        <div className="container grid items-center gap-14 pb-20 pt-32 lg:min-h-[92svh] lg:grid-cols-[1.1fr_1fr] lg:pb-20 lg:pt-28 xl:gap-16">
           <div className="max-w-2xl">
             <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/85 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-lime-500" />

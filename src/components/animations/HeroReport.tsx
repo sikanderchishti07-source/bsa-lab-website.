@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { animate, motion } from 'framer-motion'
-import { Activity, Cpu, FlaskConical, MapPin, ShieldCheck } from 'lucide-react'
+import { Cpu, FlaskConical, MapPin, ShieldCheck } from 'lucide-react'
 import { LeafMark } from '../brand/Logo'
+import { GCTrace } from './GCTrace'
 import { useL } from '../../lib/i18n-helpers'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
@@ -20,9 +21,6 @@ const rows = [
   { p: 'E. coli', v: 1, dec: 0, u: 'CFU/100mL', pct: 6, lim: 40, lt: true },
 ]
 
-// chromatogram-like trace (peaks) in a 400x90 box
-const TRACE =
-  'M0 80 L30 79 L42 78 L48 40 L54 78 L80 79 L100 77 L108 22 L116 76 L140 79 L170 78 L176 55 L182 78 L210 79 L230 78 L238 10 L246 77 L270 79 L300 78 L306 48 L312 78 L340 79 L352 78 L358 32 L364 78 L400 79'
 
 function Readout({ to, dec, delay, lt }: { to: number; dec: number; delay: number; lt?: boolean }) {
   const [v, setV] = useState(0)
@@ -48,7 +46,7 @@ export function HeroReport() {
   ]
 
   return (
-    <div className="relative mx-auto w-full max-w-[470px]">
+    <div className="relative mx-auto w-full max-w-[490px]">
       <div className="absolute -inset-12 -z-10 rounded-full bg-aqua-400/20 blur-3xl" aria-hidden />
       <div className="absolute -bottom-10 -end-10 -z-10 h-48 w-48 rounded-full bg-leaf-600/25 blur-3xl" aria-hidden />
 
@@ -81,7 +79,7 @@ export function HeroReport() {
           <div className="w-[17%] bg-lime-500" />
         </div>
 
-        <div className="relative p-6 sm:p-7">
+        <div className="relative p-5 sm:p-6">
           {/* header */}
           <div className="flex items-start justify-between gap-4">
             <div>
@@ -101,40 +99,10 @@ export function HeroReport() {
             </span>
           </div>
 
-          {/* chromatogram */}
-          <div className="relative mt-5 overflow-hidden rounded-xl border border-white/10 bg-navy-950/60 px-3 pb-2 pt-3" dir="ltr">
-            <div className="mb-1 flex items-center justify-between font-mono text-[10px] text-white/45">
-              <span className="flex items-center gap-1.5"><Activity className="h-3 w-3 text-aqua-300" />GC-MS · signal</span>
-              <span>t = 0–12 min</span>
-            </div>
-            <svg viewBox="0 0 400 90" className="h-20 w-full" preserveAspectRatio="none" aria-hidden>
-              <defs>
-                <linearGradient id="trFill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stopColor="#86B42E" stopOpacity=".35" />
-                  <stop offset="1" stopColor="#86B42E" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              {[22, 45, 68].map((y) => <line key={y} x1="0" x2="400" y1={y} y2={y} stroke="rgba(255,255,255,.07)" strokeDasharray="3 4" />)}
-              <motion.path d={`${TRACE} L400 90 L0 90Z`} fill="url(#trFill)" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.4, duration: 0.8 }} />
-              <motion.path
-                d={TRACE}
-                fill="none"
-                stroke="#86B42E"
-                strokeWidth="1.6"
-                strokeLinejoin="round"
-                vectorEffect="non-scaling-stroke"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ delay: 1, duration: 2, ease: 'linear' }}
-              />
-              {!reduced && (
-                <motion.line y1="0" y2="90" stroke="#5B93D1" strokeWidth="1" vectorEffect="non-scaling-stroke" initial={{ x1: 0, x2: 0 }} animate={{ x1: [0, 400], x2: [0, 400] }} transition={{ duration: 5, repeat: Infinity, ease: 'linear', delay: 3 }} />
-              )}
-            </svg>
-          </div>
+          <div className="mt-4"><GCTrace /></div>
 
           {/* readouts */}
-          <ul className="mt-4 space-y-3" dir="ltr">
+          <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2.5" dir="ltr">
             {rows.map((r, i) => (
               <li key={r.p}>
                 <div className="flex items-baseline justify-between text-sm">
@@ -165,17 +133,38 @@ export function HeroReport() {
             <span className="h-2.5 w-px bg-white/50" /> {t('home.report.limit')}
           </p>
 
-          {/* status timeline */}
-          <ol className="relative mt-5 grid grid-cols-3 gap-2">
+          {/* status pipeline */}
+          <ol className="mt-4 flex items-center gap-1.5">
             {steps.map(({ I, l }, i) => (
-              <motion.li key={l} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.4 + i * 0.25 }} className="flex flex-col items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-2 py-3 text-center">
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-leaf-600/20 text-lime-500 ring-1 ring-lime-500/30"><I className="h-4 w-4" /></span>
-                <span className="text-[11px] font-semibold leading-tight text-white/85">{l}</span>
+              <motion.li key={l} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 2.4 + i * 0.25 }} className="flex flex-1 items-center gap-1.5">
+                <span className="flex min-w-0 flex-1 items-center gap-1.5 rounded-lg border border-lime-500/20 bg-lime-500/[0.06] px-2 py-1.5">
+                  <I className="h-3.5 w-3.5 shrink-0 text-lime-500" />
+                  <span className="truncate text-[10.5px] font-semibold text-white/85">{l}</span>
+                </span>
+                {i < steps.length - 1 && <span className="h-px w-2 shrink-0 bg-lime-500/40" aria-hidden />}
               </motion.li>
             ))}
           </ol>
 
-          <div className="mt-5 flex items-center justify-between border-t border-dashed border-white/15 pt-4">
+          {/* data stream */}
+          <div className="mt-3 overflow-hidden rounded-md border border-white/[0.06] bg-black/20 py-1" dir="ltr" aria-hidden>
+            <div className="flex w-max animate-marquee gap-6 whitespace-nowrap font-mono text-[9.5px] text-white/40 [animation-duration:28s]">
+              {[0, 1].map((k) => (
+                <span key={k} className="flex gap-6">
+                  <span>S/N <b className="font-medium text-lime-500/80">412</b></span>
+                  <span>OVEN <b className="font-medium text-white/60">38.2°C</b></span>
+                  <span>FLOW <b className="font-medium text-white/60">1.0 mL/min</b></span>
+                  <span>CAL <b className="font-medium text-lime-500/80">R² 0.9996</b></span>
+                  <span>BLANK <b className="font-medium text-lime-500/80">PASS</b></span>
+                  <span>DUP RPD <b className="font-medium text-white/60">3.1%</b></span>
+                  <span>CRM REC <b className="font-medium text-white/60">98.4%</b></span>
+                  <span>QC <b className="font-medium text-lime-500/80">APPROVED</b></span>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 flex items-center justify-between border-t border-dashed border-white/15 pt-3">
             <span className="flex items-center gap-2 text-[10px] text-white/45">
               <LeafMark className="h-4 w-auto" />
               {t('home.report.note')}

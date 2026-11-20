@@ -15,9 +15,9 @@ import { useReducedMotion } from '../../hooks/useReducedMotion'
  */
 const rows = [
   { p: 'pH', v: 7.4, dec: 1, u: '', pct: 52, lim: 75 },
-  { p: 'BOD₅', v: 18, dec: 0, u: 'mg/L', pct: 36, lim: 60 },
-  { p: 'COD', v: 42, dec: 0, u: 'mg/L', pct: 28, lim: 70 },
-  { p: 'TSS', v: 12, dec: 0, u: 'mg/L', pct: 24, lim: 55 },
+  { p: 'COD', v: 42, dec: 0, u: 'mg/L', pct: 36, lim: 60 },
+  { p: 'NH₄', v: 0.8, dec: 1, u: 'mg/L', pct: 22, lim: 55 },
+  { p: 'Pb', v: 0.004, dec: 3, u: 'mg/L', pct: 18, lim: 50 },
   { p: 'E. coli', v: 1, dec: 0, u: 'CFU/100mL', pct: 6, lim: 40, lt: true },
 ]
 

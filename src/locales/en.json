@@ -121,7 +121,7 @@
       },
       {
         "t": "Trained field engineers",
-        "d": "Correct sampling is half the result. Our team is trained in ISO and APHA sampling practice."
+        "d": "Correct sampling is half the result. Our field team samples groundwater, wastewater, sewage and soil to EPA recommendations."
       },
       {
         "t": "Chain-of-custody sampling",
@@ -210,7 +210,7 @@
       "Documented QA/QC on every analytical batch",
       "Regular instrument calibration and maintenance",
       "Participation in proficiency testing schemes",
-      "Methods based on APHA Standard Methods, ASTM, US EPA and ISO"
+      "Methods based on US EPA (8260, 8270, 200.7, 200.8) and HACH procedures"
     ]
   },
   "services": {
@@ -269,8 +269,8 @@
   "lab": {
     "eyebrow": "Our laboratory",
     "title": "Inside the BSA.lab laboratory",
-    "sub": "A dedicated environmental laboratory in Riyadh with wet chemistry, instrumental analysis and microbiology sections.",
-    "sectionsTitle": "Laboratory sections",
+    "sub": "A dedicated environmental laboratory in Riyadh with organic, inorganic, microbiology and sampling departments, built around GC, ICP-MS and HACH instrumentation.",
+    "sectionsTitle": "Laboratory departments",
     "sections": [
       {
         "t": "Sample reception",
@@ -289,7 +289,7 @@
         "d": "Coliforms, E. coli, HPC, Legionella and pathogens in a dedicated clean area."
       }
     ],
-    "equipmentTitle": "Key equipment",
+    "equipmentTitle": "Field & physical equipment",
     "equipmentNote": "Equipment list to be confirmed by the laboratory manager.",
     "qaTitle": "QA/QC process",
     "qa": [
@@ -303,7 +303,12 @@
     "retentionTitle": "Sample retention",
     "retention": "Samples are retained after reporting for a defined period so results can be re-checked if needed. Ask us about retention for your project.",
     "galleryTitle": "Gallery",
-    "galleryNote": "Indicative photos. Real laboratory photos coming soon."
+    "galleryNote": "Indicative photos. Real laboratory photos coming soon.",
+    "methodsLabel": "Method",
+    "instrumentLabel": "Instrument",
+    "paramsCount": "parameters",
+    "samplingTitle": "Sampling department",
+    "samplingText": "Our field team performs standard sampling of groundwater, wastewater, sewage and soil. pH, electrical conductivity, temperature, salinity and dissolved oxygen are measured immediately on site, following EPA recommendations."
   },
   "walkin": {
     "eyebrow": "Walk-in clients",

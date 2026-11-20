@@ -15,7 +15,7 @@ export type Service = {
   related: string[]
 }
 
-const ta = { en: 'Typically 3–7 working days (urgent service available)', ar: 'عادةً من 3 إلى 7 أيام عمل (تتوفر خدمة مستعجلة)' } // TODO_CONFIRM
+const ta = { en: 'Typically 3–7 working days (urgent service available)', ar: 'عادةً من 3 إلى 7 أيام عمل — ‎تتوفر خدمة مستعجلة' } // TODO_CONFIRM
 
 export const services: Service[] = [
   {
@@ -35,10 +35,12 @@ export const services: Service[] = [
       { en: 'Hotels, hospitals and pool operators', ar: 'الفنادق والمستشفيات ومشغلو المسابح' },
     ],
     params: [
-      { title: { en: 'Physical', ar: 'فيزيائية' }, items: ['pH', 'Temperature', 'Turbidity', 'Colour', 'Odour', 'EC / Conductivity', 'TDS', 'TSS'] },
-      { title: { en: 'Chemical', ar: 'كيميائية' }, items: ['Total hardness', 'Alkalinity', 'Chloride', 'Sulfate', 'Fluoride', 'Nitrate', 'Nitrite', 'Ammonia', 'Phosphate', 'Residual chlorine', 'Dissolved oxygen (DO)'] },
-      { title: { en: 'Metals', ar: 'المعادن' }, items: ['Lead (Pb)', 'Cadmium (Cd)', 'Chromium (Cr)', 'Arsenic (As)', 'Mercury (Hg)', 'Copper (Cu)', 'Zinc (Zn)', 'Iron (Fe)', 'Manganese (Mn)', 'Nickel (Ni)', 'Aluminium (Al)'] },
-      { title: { en: 'Microbiological', ar: 'ميكروبيولوجية' }, items: ['Total coliform', 'E. coli', 'Faecal coliform', 'Heterotrophic plate count', 'Pseudomonas aeruginosa', 'Legionella'] },
+      { title: { en: 'Field & physical (HACH HQ2200 / 2100Q)', ar: 'ميدانية وفيزيائية — ‎HACH HQ2200 / 2100Q' }, items: ['pH', 'Temperature', 'EC / Conductivity', 'Salinity', 'Dissolved oxygen (DO)', 'Turbidity'] },
+      { title: { en: 'Anions & nutrients (HACH DR 3900)', ar: 'الأنيونات والمغذيات — ‎HACH DR 3900' }, items: ['Fluoride', 'Chloride', 'Sulfate', 'Nitrate', 'Nitrite', 'Ammonia (NH₄)', 'Phosphate (PO₄)'] },
+      { title: { en: 'Major cations', ar: 'الكاتيونات الرئيسية' }, items: ['Calcium (Ca)', 'Magnesium (Mg)', 'Potassium (K)'] },
+      { title: { en: 'Metals (ICP-MS · EPA 200.7 / 200.8)', ar: 'المعادن — ‎ICP-MS · EPA 200.7 / 200.8' }, items: ['Antimony (Sb)', 'Silver (Ag)', 'Manganese (Mn)', 'Copper (Cu)', 'Arsenic (As)', 'Tin (Sn)', 'Selenium (Se)', 'Lead (Pb)', 'Beryllium (Be)', 'Aluminium (Al)', 'Thallium (Tl)', 'Mercury (Hg)', 'Iron (Fe)', 'Barium (Ba)', 'Uranium (U)', 'Nickel (Ni)', 'Cadmium (Cd)', 'Zinc (Zn)', 'Chromium (Cr)', 'Cobalt (Co)', 'Vanadium (V)'] },
+      { title: { en: 'Organics (GC · EPA 8260 / 8270)', ar: 'المركبات العضوية — ‎GC · EPA 8260 / 8270' }, items: ['TPH', 'Benzene', 'Toluene', 'Ethylbenzene', 'Xylene', 'Phenols', 'TOC'] },
+      { title: { en: 'Microbiology', ar: 'الميكروبيولوجي' }, items: ['Aerobic & anaerobic count', 'Total coliforms', 'Enterobacteriaceae', 'Staphylococcus aureus', 'Colony count', 'E. coli', 'Pseudomonas aeruginosa', 'Yeast & moulds'] },
     ],
     sampling: {
       en: 'Microbiology samples go in sterile bottles with thiosulfate and must reach the lab chilled within 24 hours. Chemistry samples use clean PE bottles; metals are acid-preserved.',
@@ -64,15 +66,15 @@ export const services: Service[] = [
       { en: 'Environmental consultants preparing compliance reports', ar: 'الاستشاريون البيئيون المعدّون لتقارير الالتزام' },
     ],
     params: [
-      { title: { en: 'Organic load', ar: 'الحمل العضوي' }, items: ['BOD₅', 'COD', 'TOC', 'Oil & grease', 'TPH'] },
-      { title: { en: 'Solids & physical', ar: 'المواد الصلبة والخصائص الفيزيائية' }, items: ['pH', 'TSS', 'TDS', 'Turbidity', 'Temperature', 'EC'] },
-      { title: { en: 'Nutrients', ar: 'المغذيات' }, items: ['Total nitrogen', 'TKN', 'Ammonia-N', 'Nitrate-N', 'Total phosphorus', 'Residual chlorine'] },
-      { title: { en: 'Metals', ar: 'المعادن' }, items: ['Heavy metal suite (Pb, Cd, Cr, Cu, Ni, Zn, Hg, As)'] },
-      { title: { en: 'Microbiological', ar: 'ميكروبيولوجية' }, items: ['Faecal coliform', 'E. coli', 'Helminth (nematode) eggs'] },
+      { title: { en: 'Organic load', ar: 'الحمل العضوي' }, items: ['COD', 'TOC', 'Phenols', 'TPH'] },
+      { title: { en: 'Field & physical', ar: 'ميدانية وفيزيائية' }, items: ['pH', 'Temperature', 'EC', 'Dissolved oxygen (DO)', 'Turbidity'] },
+      { title: { en: 'Nutrients', ar: 'المغذيات' }, items: ['Ammonia (NH₄)', 'Nitrate', 'Nitrite', 'Phosphate (PO₄)', 'Sulfate', 'Chloride'] },
+      { title: { en: 'Metals (ICP-MS)', ar: 'المعادن — ‎ICP-MS' }, items: ['21-metal ICP-MS suite (Pb, Cd, Cr, As, Hg, Ni, Cu, Zn…)'] },
+      { title: { en: 'Microbiology', ar: 'الميكروبيولوجي' }, items: ['Total coliforms', 'E. coli', 'Enterobacteriaceae', 'Pseudomonas aeruginosa'] },
     ],
     sampling: {
-      en: 'We take grab or 24-hour composite samples depending on the permit. BOD samples are chilled and analysed within 48 hours; COD and nutrients are acid-preserved.',
-      ar: 'نأخذ عينات لحظية أو مركبة على مدى 24 ساعة حسب متطلبات التصريح. تُبرَّد عينات BOD وتُحلل خلال 48 ساعة، وتُحفظ عينات COD والمغذيات بالحمض.',
+      en: 'We take grab or 24-hour composite samples depending on the permit. pH, temperature, EC and DO are measured on site; samples for COD and nutrients are acid-preserved and kept chilled.',
+      ar: 'نأخذ عينات لحظية أو مركبة على مدى 24 ساعة حسب متطلبات التصريح. تُقاس درجة الحموضة والحرارة والتوصيلية والأكسجين المذاب في الموقع، وتُحفظ عينات COD والمغذيات بالحمض وتُبرَّد.',
     },
     turnaround: ta,
     related: ['sludge-testing', 'water-testing', 'field-sampling'],
@@ -94,10 +96,10 @@ export const services: Service[] = [
       { en: 'EIA and remediation consultants', ar: 'استشاريو تقييم الأثر البيئي والمعالجة' },
     ],
     params: [
-      { title: { en: 'General', ar: 'عامة' }, items: ['pH', 'EC', 'Moisture content', 'Organic matter', 'Texture (sand/silt/clay)'] },
-      { title: { en: 'Salts & nutrients', ar: 'الأملاح والمغذيات' }, items: ['Chloride', 'Sulfate', 'Nitrogen', 'Phosphorus', 'Potassium'] },
-      { title: { en: 'Metals', ar: 'المعادن' }, items: ['Heavy metal suite (Pb, Cd, Cr, Cu, Ni, Zn, Hg, As)'] },
-      { title: { en: 'Organic contaminants', ar: 'الملوثات العضوية' }, items: ['TPH', 'BTEX', 'PAHs', 'Pesticides'] },
+      { title: { en: 'Physical', ar: 'فيزيائية' }, items: ['pH', 'EC', 'Moisture content', 'Organic matter (LOI)', 'Ash content', 'Particle size (sieve analysis)'] },
+      { title: { en: 'Salts & nutrients', ar: 'الأملاح والمغذيات' }, items: ['Chloride', 'Sulfate', 'Nitrate', 'Phosphate', 'Potassium', 'Calcium', 'Magnesium'] },
+      { title: { en: 'Metals (ICP-MS)', ar: 'المعادن — ‎ICP-MS' }, items: ['21-metal ICP-MS suite (Pb, Cd, Cr, As, Hg, Ni, Cu, Zn…)'] },
+      { title: { en: 'Organic contaminants (GC)', ar: 'الملوثات العضوية — ‎GC' }, items: ['TPH', 'BTEX', 'PCBs', 'Chlorophenols', 'Chlorobenzene', 'Cyclic hydrocarbons'] },
     ],
     sampling: {
       en: 'Samples are taken by depth with clean stainless tools, sealed in glass jars for organics and bags for general chemistry, then kept cool until they reach the lab.',
@@ -115,7 +117,7 @@ export const services: Service[] = [
       en: 'Sludge cannot leave site without knowing what is in it. We characterise STP sludge, biosolids and industrial sludge so you can choose the right disposal route, get landfill acceptance, or turn it into a usable soil conditioner.',
       ar: 'لا يمكن نقل الحمأة من الموقع دون معرفة مكوناتها. نحدد خصائص حمأة محطات المعالجة والمواد الصلبة الحيوية والحمأة الصناعية لتختار مسار التخلص المناسب أو تحصل على قبول المرادم أو تحولها إلى محسّن تربة قابل للاستخدام.',
     },
-    scope: { en: 'STP sludge & biosolids • Industrial and oily sludge • Landfill acceptance (TCLP) • Reuse as fertiliser or soil conditioner', ar: 'حمأة محطات المعالجة والمواد الصلبة الحيوية • الحمأة الصناعية والزيتية • قبول المرادم (TCLP) • إعادة الاستخدام كسماد أو محسّن تربة' },
+    scope: { en: 'STP sludge & biosolids • Industrial and oily sludge • Disposal classification • Reuse as fertiliser or soil conditioner', ar: 'حمأة محطات المعالجة والمواد الصلبة الحيوية • الحمأة الصناعية والزيتية • تصنيف التخلص • إعادة الاستخدام كسماد أو محسّن تربة' },
     whoNeeds: [
       { en: 'STP operators and O&M contractors', ar: 'مشغلو محطات المعالجة ومقاولو التشغيل والصيانة' },
       { en: 'Waste management companies', ar: 'شركات إدارة النفايات' },
@@ -123,10 +125,11 @@ export const services: Service[] = [
       { en: 'Compost and fertiliser producers', ar: 'منتجو السماد العضوي والأسمدة' },
     ],
     params: [
-      { title: { en: 'Physical', ar: 'فيزيائية' }, items: ['Moisture / dry solids', 'Volatile solids', 'pH', 'Oil content'] },
-      { title: { en: 'Metals & leachate', ar: 'المعادن والرشاحة' }, items: ['Heavy metal suite', 'TCLP leachate'] },
-      { title: { en: 'Nutrients', ar: 'المغذيات' }, items: ['Total nitrogen', 'Phosphorus', 'Potassium', 'Organic carbon'] },
-      { title: { en: 'Pathogens', ar: 'الممرضات' }, items: ['Faecal coliform', 'Salmonella', 'Helminth eggs'] },
+      { title: { en: 'Physical', ar: 'فيزيائية' }, items: ['Moisture / dry solids', 'Volatile solids (LOI)', 'Ash content', 'pH'] },
+      { title: { en: 'Metals (ICP-MS)', ar: 'المعادن — ‎ICP-MS' }, items: ['21-metal ICP-MS suite (Pb, Cd, Cr, As, Hg, Ni, Cu, Zn…)'] },
+      { title: { en: 'Nutrients', ar: 'المغذيات' }, items: ['Nitrate', 'Ammonia (NH₄)', 'Phosphate', 'Potassium'] },
+      { title: { en: 'Organics (GC)', ar: 'المركبات العضوية — ‎GC' }, items: ['TPH', 'PCBs', 'Phenols'] },
+      { title: { en: 'Microbiology', ar: 'الميكروبيولوجي' }, items: ['Total coliforms', 'E. coli', 'Enterobacteriaceae', 'Yeast & moulds'] },
     ],
     sampling: {
       en: 'Composite samples are collected from several points of the drying bed, belt press or storage pile, packed in wide-mouth jars and chilled.',
@@ -152,14 +155,14 @@ export const services: Service[] = [
       { en: 'Marine environmental consultants', ar: 'الاستشاريون البيئيون البحريون' },
     ],
     params: [
-      { title: { en: 'Water quality', ar: 'جودة المياه' }, items: ['Salinity', 'Dissolved oxygen', 'pH', 'Turbidity', 'Temperature', 'Chlorophyll-a'] },
-      { title: { en: 'Nutrients', ar: 'المغذيات' }, items: ['Nitrate', 'Nitrite', 'Ammonia', 'Phosphate', 'Silicate'] },
-      { title: { en: 'Contaminants', ar: 'الملوثات' }, items: ['Heavy metals', 'TPH', 'Oil & grease'] },
-      { title: { en: 'Sediment & biology', ar: 'الرواسب والأحياء' }, items: ['Marine sediment grain size', 'Sediment metals & TPH', 'Enterococci', 'Faecal coliform'] },
+      { title: { en: 'Field measurements', ar: 'القياسات الميدانية' }, items: ['Salinity', 'Dissolved oxygen (DO)', 'pH', 'Temperature', 'Turbidity', 'EC'] },
+      { title: { en: 'Nutrients', ar: 'المغذيات' }, items: ['Nitrate', 'Nitrite', 'Ammonia (NH₄)', 'Phosphate (PO₄)'] },
+      { title: { en: 'Contaminants', ar: 'الملوثات' }, items: ['Metals (ICP-MS)', 'TPH', 'Phenols'] },
+      { title: { en: 'Sediment & biology', ar: 'الرواسب والأحياء' }, items: ['Sediment particle size', 'Sediment metals & TPH', 'Total coliforms', 'E. coli'] },
     ],
     sampling: {
-      en: 'Depth-specific water samples are taken with Niskin-type samplers and sediment with grab samplers, logged with GPS coordinates and kept cold on board.',
-      ar: 'تُؤخذ عينات المياه من أعماق محددة باستخدام عينات من نوع نيسكن، والرواسب باستخدام أدوات الالتقاط، وتُسجل بإحداثيات GPS وتُحفظ مبردة على متن القارب.',
+      en: 'Depth-specific water samples and seabed sediment grabs are collected, logged with GPS coordinates and kept cold until they reach the lab.',
+      ar: 'تُجمع عينات المياه من أعماق محددة وعينات رواسب قاع البحر، وتُسجل بإحداثيات GPS وتُحفظ مبردة حتى وصولها إلى المختبر.',
     },
     turnaround: ta,
     related: ['water-testing', 'soil-testing', 'field-sampling'],
@@ -181,10 +184,10 @@ export const services: Service[] = [
       { en: 'Hydrogeology consultants', ar: 'استشاريو الهيدروجيولوجيا' },
     ],
     params: [
-      { title: { en: 'Field', ar: 'ميدانية' }, items: ['pH', 'EC', 'Temperature', 'DO', 'Water level'] },
-      { title: { en: 'Major ions', ar: 'الأيونات الرئيسية' }, items: ['Ca', 'Mg', 'Na', 'K', 'Chloride', 'Sulfate', 'Bicarbonate', 'Nitrate'] },
-      { title: { en: 'Contaminants', ar: 'الملوثات' }, items: ['Heavy metals', 'TPH', 'BTEX', 'VOCs'] },
-      { title: { en: 'Microbiological', ar: 'ميكروبيولوجية' }, items: ['Total coliform', 'E. coli'] },
+      { title: { en: 'Field', ar: 'ميدانية' }, items: ['pH', 'EC', 'Temperature', 'Dissolved oxygen (DO)', 'Salinity'] },
+      { title: { en: 'Major ions', ar: 'الأيونات الرئيسية' }, items: ['Calcium', 'Magnesium', 'Potassium', 'Chloride', 'Sulfate', 'Nitrate', 'Fluoride'] },
+      { title: { en: 'Contaminants', ar: 'الملوثات' }, items: ['Metals (ICP-MS)', 'TPH', 'BTEX', 'Phenols'] },
+      { title: { en: 'Microbiology', ar: 'الميكروبيولوجي' }, items: ['Total coliforms', 'E. coli'] },
     ],
     sampling: {
       en: 'Wells are purged until field readings stabilise, then sampled with dedicated bailers or low-flow pumps into preserved bottles.',
@@ -210,12 +213,12 @@ export const services: Service[] = [
       { en: 'Consultants who need defensible data', ar: 'الاستشاريون الذين يحتاجون بيانات موثوقة' },
     ],
     params: [
-      { title: { en: 'On-site measurements', ar: 'القياسات الميدانية' }, items: ['pH', 'Temperature', 'EC', 'DO', 'Turbidity', 'Residual chlorine'] },
+      { title: { en: 'On-site measurements (HACH HQ2200 / 2100Q)', ar: 'القياسات الميدانية — ‎HACH HQ2200 / 2100Q' }, items: ['pH', 'EC', 'Temperature', 'Salinity', 'Dissolved oxygen (DO)', 'Turbidity'] },
       { title: { en: 'Documentation', ar: 'التوثيق' }, items: ['Chain-of-custody forms', 'GPS coordinates', 'Photo logs', 'Field sheets'] },
     ],
     sampling: {
-      en: 'Every trip includes calibrated field meters, certified clean containers, preservatives, ice boxes and temperature blanks.',
-      ar: 'تتضمن كل زيارة أجهزة قياس ميدانية معايرة، وعبوات نظيفة معتمدة، ومواد حافظة، وصناديق تبريد، وعينات مرجعية لمراقبة الحرارة.',
+      en: 'Every trip includes calibrated HACH field meters (HQ2200 multi-meter and 2100Q turbidity meter), clean containers, preservatives and ice boxes. Field measurements follow EPA recommendations.',
+      ar: 'تتضمن كل زيارة أجهزة HACH ميدانية معايرة (جهاز HQ2200 متعدد القياسات وجهاز العكارة 2100Q)، وعبوات نظيفة، ومواد حافظة، وصناديق تبريد. تُجرى القياسات الميدانية وفق توصيات وكالة حماية البيئة الأمريكية.',
     },
     turnaround: { en: 'Site visits scheduled within 24–72 hours in Riyadh', ar: 'تُجدول الزيارات خلال 24–72 ساعة داخل الرياض' }, // TODO_CONFIRM
     related: ['water-testing', 'wastewater-stp-testing', 'soil-testing'],

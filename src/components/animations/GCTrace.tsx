@@ -19,10 +19,11 @@ const IH = H - PAD.t - PAD.b
 const peaks = [
   { rt: 1.6, h: 0.42, w: 0.09, name: 'Benzene' },
   { rt: 3.1, h: 0.66, w: 0.1, name: 'Toluene' },
-  { rt: 4.7, h: 0.28, w: 0.08, name: 'Ethylbenzene' },
-  { rt: 5.6, h: 0.95, w: 0.11, name: 'm/p-Xylene' },
-  { rt: 7.4, h: 0.38, w: 0.09, name: 'o-Xylene' },
-  { rt: 9.8, h: 0.58, w: 0.12, name: 'Naphthalene' },
+  { rt: 4.2, h: 0.3, w: 0.08, name: 'Chlorobenzene' },
+  { rt: 5.0, h: 0.26, w: 0.08, name: 'Ethylbenzene' },
+  { rt: 6.2, h: 0.95, w: 0.11, name: 'm/p-Xylene' },
+  { rt: 7.6, h: 0.38, w: 0.09, name: 'o-Xylene' },
+  { rt: 9.8, h: 0.55, w: 0.12, name: 'PCB' },
 ]
 const RT_MAX = 12
 
@@ -96,8 +97,8 @@ export function GCTrace() {
       <div className="flex items-center justify-between border-b border-white/[0.06] px-3 py-1.5 font-mono text-[10px] text-white/50">
         <span className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-lime-500" />
-          GC-MS · CH1 TIC
-          <span className="text-aqua-300/80">· CH2 REF</span>
+          GC · BK-GC901 · CH1
+          <span className="text-aqua-300/80">· REF STD</span>
         </span>
         <span>
           RT <span ref={readRt} className="text-white/85">00.00</span> min · <span ref={readCt} className="text-lime-500">0.00e+0</span>

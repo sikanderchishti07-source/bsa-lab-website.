@@ -1,4 +1,4 @@
-import { Beaker, BookOpen, Cpu, FlaskConical, Inbox, Microscope, ShieldCheck, TestTubes } from 'lucide-react'
+import { Atom, Beaker, BookOpen, Cpu, FlaskConical, Inbox, Microscope, ScanLine, ShieldCheck, TestTubes } from 'lucide-react'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { PageHero } from '../components/layout/PageHero'
@@ -6,16 +6,16 @@ import { CtaBand } from '../components/layout/CtaBand'
 import { SectionTitle } from '../components/ui/SectionTitle'
 import { Reveal } from '../components/ui/Reveal'
 import { Pending } from '../components/ui/Pending'
-import { equipment } from '../data/content'
+import { departments, equipment } from '../data/content'
 import { useL } from '../lib/i18n-helpers'
 import { useSeo } from '../hooks/useSeo'
 
-const sectionIcons = [Inbox, Beaker, Cpu, Microscope]
+const deptIcons = { organic: FlaskConical, icp: Atom, spectro: ScanLine, micro: Microscope }
 // TODO_REPLACE: swap these placeholder tiles for real laboratory photos (put files in /public/images/lab and set `src`).
 const gallery: { src?: string; label: string; icon: typeof Beaker; tone: string }[] = [
   { label: 'Sample reception', icon: Inbox, tone: 'from-navy-700 to-navy-500' },
-  { label: 'Wet chemistry bench', icon: Beaker, tone: 'from-leaf-600 to-navy-700' },
-  { label: 'ICP / GC-MS room', icon: Cpu, tone: 'from-aqua-400 to-navy-700' },
+  { label: 'Spectrophotometry (HACH DR 3900)', icon: Beaker, tone: 'from-leaf-600 to-navy-700' },
+  { label: 'ICP-MS & GC', icon: Cpu, tone: 'from-aqua-400 to-navy-700' },
   { label: 'Microbiology', icon: Microscope, tone: 'from-navy-500 to-leaf-600' },
   { label: 'Field kits', icon: TestTubes, tone: 'from-lime-500 to-leaf-600' },
   { label: 'Cold storage', icon: FlaskConical, tone: 'from-navy-900 to-aqua-400' },
@@ -24,7 +24,6 @@ const gallery: { src?: string; label: string; icon: typeof Beaker; tone: string 
 export default function Laboratory() {
   const { t, pick } = useL()
   useSeo(t('seo.laboratory'), t('lab.sub'))
-  const sections = t('lab.sections', { returnObjects: true }) as { t: string; d: string }[]
   const qa = t('lab.qa', { returnObjects: true }) as string[]
   const [open, setOpen] = useState<number | null>(null)
   return (
@@ -34,36 +33,60 @@ export default function Laboratory() {
       <section className="py-24">
         <div className="container">
           <SectionTitle eyebrow={t('lab.eyebrow')} title={t('lab.sectionsTitle')} />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {sections.map((s, i) => {
-              const I = sectionIcons[i]
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {departments.map((d, i) => {
+              const I = deptIcons[d.icon]
               return (
-                <Reveal key={s.t} delay={i * 0.08}>
-                  <div className="group relative h-full overflow-hidden rounded-3xl bg-navy-700 p-7 text-white">
-                    <div className="absolute -end-8 -top-8 h-28 w-28 rounded-full bg-leaf-600/40 blur-2xl transition-transform duration-700 group-hover:scale-150" />
-                    <I className="relative h-9 w-9 text-lime-500" strokeWidth={1.5} />
-                    <h3 className="relative mt-6 text-xl font-bold !text-white">{s.t}</h3>
-                    <p className="relative mt-2 text-sm leading-relaxed text-white/75">{s.d}</p>
-                  </div>
+                <Reveal key={d.key} delay={(i % 2) * 0.08}>
+                  <article className="group relative h-full overflow-hidden rounded-3xl border border-navy-700/10 bg-white shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift">
+                    <div className="on-dark relative overflow-hidden bg-navy-700 p-7 text-white">
+                      <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:22px_22px]" aria-hidden />
+                      <div className="absolute -end-10 -top-10 h-36 w-36 rounded-full bg-leaf-600/40 blur-2xl transition-transform duration-700 group-hover:scale-150" aria-hidden />
+                      <div className="relative flex items-start gap-4">
+                        <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/10 text-lime-500 ring-1 ring-white/15"><I className="h-7 w-7" strokeWidth={1.5} /></span>
+                        <div className="min-w-0">
+                          <h3 className="text-xl font-bold !text-white">{pick(d.name)}</h3>
+                          <dl className="mt-3 grid gap-1.5 text-sm" dir="ltr">
+                            <div className="flex flex-wrap gap-x-2"><dt className="font-mono text-[11px] uppercase text-lime-500">{t('lab.instrumentLabel')}</dt><dd className="text-white/85">{d.instrument}</dd></div>
+                            <div className="flex flex-wrap gap-x-2"><dt className="font-mono text-[11px] uppercase text-lime-500">{t('lab.methodsLabel')}</dt><dd className="text-white/85">{d.method}</dd></div>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-7">
+                      <p className="mb-4 font-mono text-xs font-semibold text-leaf-600">{d.params.length} {t('lab.paramsCount')}</p>
+                      <ul className="flex flex-wrap gap-2" dir="ltr">
+                        {d.params.map((p) => (
+                          <li key={p} className={`rounded-lg border border-navy-700/10 bg-mist-50 text-sm font-medium text-navy-700 transition hover:border-leaf-600 hover:bg-leaf-600 hover:text-white ${d.key === 'icp' ? 'grid h-10 w-10 place-items-center font-mono' : 'px-3 py-1.5'}`}>{p}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
                 </Reveal>
               )
             })}
           </div>
+          <Reveal className="mt-6">
+            <div className="flex flex-col gap-5 rounded-3xl border-s-4 border-leaf-600 bg-aqua-100 p-7 sm:flex-row sm:items-center">
+              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-navy-700 text-white"><TestTubes className="h-7 w-7" strokeWidth={1.5} /></span>
+              <div>
+                <h3 className="text-xl font-bold">{t('lab.samplingTitle')}</h3>
+                <p className="mt-1.5 leading-relaxed">{t('lab.samplingText')}</p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-mist-50 py-24">
         <div className="container">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionTitle eyebrow={t('lab.eyebrow')} title={t('lab.equipmentTitle')} />
-            <p className="flex items-center gap-2 text-sm"><Pending />{t('lab.equipmentNote')}</p>
-          </div>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionTitle eyebrow={t('lab.eyebrow')} title={t('lab.equipmentTitle')} />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2">
             {equipment.map((e, i) => (
-              <Reveal key={e.name} delay={(i % 4) * 0.06}>
-                <div className="card group flex h-full items-start gap-4 p-6 transition hover:-translate-y-1 hover:border-leaf-600/40">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-aqua-100 font-display text-sm font-extrabold text-navy-700 transition group-hover:bg-leaf-600 group-hover:text-white">{String(i + 1).padStart(2, '0')}</span>
-                  <div><h3 className="font-bold" dir="ltr">{e.name}</h3><p className="mt-1 text-sm">{pick(e.use)}</p></div>
+              <Reveal key={e.name} delay={(i % 2) * 0.06}>
+                <div className="card group flex h-full items-start gap-5 p-6 transition hover:-translate-y-1 hover:border-leaf-600/40">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-aqua-100 font-mono text-sm font-bold text-navy-700 transition group-hover:bg-leaf-600 group-hover:text-white">{String(i + 1).padStart(2, '0')}</span>
+                  <div><h3 className="font-bold" dir="ltr">{e.name}</h3><p className="mt-1 text-[15px]">{pick(e.use)}</p></div>
                 </div>
               </Reveal>
             ))}
@@ -82,7 +105,7 @@ export default function Laboratory() {
             <BookOpen className="h-9 w-9 text-lime-500" strokeWidth={1.5} />
             <h2 className="mt-5 text-2xl font-extrabold !text-white">{t('lab.methodsTitle')}</h2>
             <div className="mt-6 grid grid-cols-2 gap-3" dir="ltr">
-              {['APHA Standard Methods', 'ASTM', 'US EPA', 'ISO'].map((m) => <span key={m} className="rounded-xl border border-white/15 bg-white/5 px-3 py-3 text-center text-sm font-semibold">{m}</span>)}
+              {['EPA 8260', 'EPA 8270', 'EPA 200.7', 'EPA 200.8', 'HACH methods', 'EPA field sampling'].map((m) => <span key={m} className="rounded-xl border border-white/15 bg-white/5 px-3 py-3 text-center text-sm font-semibold">{m}</span>)}
             </div>
           </Reveal>
           <Reveal delay={0.16} className="card p-8">

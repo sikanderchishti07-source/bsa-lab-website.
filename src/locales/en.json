@@ -184,6 +184,12 @@
       "testsInScope": "tests in our scope",
       "turnaround": "Turnaround",
       "days": "working days, routine"
+    },
+    "industryPanel": {
+      "sub": "Every sector has its own regulations and risks. See what each one typically tests, and the services built for it.",
+      "all": "Explore all industries",
+      "services": "Relevant services",
+      "tests": "Typical tests"
     }
   },
   "about": {

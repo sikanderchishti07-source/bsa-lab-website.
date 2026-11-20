@@ -4,16 +4,16 @@ import { WaterHero } from '../components/animations/WaterHero'
 import { HeroReport } from '../components/animations/HeroReport'
 import { SampleJourney } from '../components/animations/SampleJourney'
 import { ServicesShowcase } from '../components/animations/ServicesShowcase'
+import { IndustriesShowcase } from '../components/animations/IndustriesShowcase'
 import { BrandStripes, StripeDivider } from '../components/brand/BrandStripes'
 import { Button } from '../components/ui/Button'
 import { SectionTitle } from '../components/ui/SectionTitle'
-import { Reveal, staggerChild, staggerParent } from '../components/ui/Reveal'
+import { Reveal } from '../components/ui/Reveal'
 import { Counter } from '../components/ui/Counter'
 import { Marquee } from '../components/ui/Marquee'
-import { IndustryIcon } from '../components/ui/IndustryIcon'
 import { Pending } from '../components/ui/Pending'
 import { CtaBand } from '../components/layout/CtaBand'
-import { industries, parametersMarquee } from '../data/content'
+import { parametersMarquee } from '../data/content'
 import { site } from '../config/site'
 import { useL } from '../lib/i18n-helpers'
 import { useSeo } from '../hooks/useSeo'
@@ -21,7 +21,7 @@ import { useSeo } from '../hooks/useSeo'
 const whyIcons = [Microscope, Users, ShieldCheck, Clock, BadgeCheck, Building2]
 
 export default function Home() {
-  const { t, pick, lang } = useL()
+  const { t, lang } = useL()
   useSeo(t('seo.home'), t('seo.homeDesc'))
   const why = t('home.why', { returnObjects: true }) as { t: string; d: string }[]
   const w1 = t('home.way1Points', { returnObjects: true }) as string[]
@@ -162,22 +162,7 @@ export default function Home() {
       </section>
 
       {/* INDUSTRIES */}
-      <section className="py-24 lg:py-32">
-        <div className="container">
-          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <SectionTitle eyebrow={t('home.industriesEyebrow')} title={t('home.industriesTitle')} />
-            <Reveal><Button to="/industries" variant="ghost" arrow>{t('nav.industries')}</Button></Reveal>
-          </div>
-          <motion.ul variants={staggerParent} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-navy-700/10 bg-navy-700/10 md:grid-cols-4">
-            {industries.map((ind) => (
-              <motion.li key={ind.icon} variants={staggerChild} className="group bg-white p-6 transition-colors duration-500 hover:bg-navy-700 sm:p-8">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-aqua-100 text-navy-700 transition group-hover:bg-leaf-600 group-hover:text-white"><IndustryIcon name={ind.icon} /></span>
-                <h3 className="mt-5 text-base font-bold transition group-hover:!text-white">{pick(ind.title)}</h3>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </div>
-      </section>
+      <IndustriesShowcase />
 
       <StripeDivider />
 

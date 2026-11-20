@@ -55,7 +55,7 @@ export function Button({ to, href, onClick, type = 'button', variant = 'green', 
     setTimeout(() => setRipples((p) => p.filter((i) => i.id !== id)), 650)
   }
 
-  const cls = `group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full font-semibold transition-colors duration-300 disabled:opacity-60 disabled:pointer-events-none ${size === 'lg' ? 'px-7 py-4 text-base' : 'px-5 py-3 text-sm'} ${styles[variant]} ${className}`
+  const cls = `group relative inline-flex whitespace-nowrap items-center justify-center gap-2 overflow-hidden rounded-full font-semibold transition-colors duration-300 disabled:opacity-60 disabled:pointer-events-none ${size === 'lg' ? 'px-7 py-4 text-base' : 'px-5 py-3 text-sm'} ${styles[variant]} ${className}`
   const inner = (
     <>
       <span className="relative z-10">{children}</span>

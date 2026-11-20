@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, BadgeCheck, Building2, CheckCircle2, Clock, FileCheck2, FlaskConical, MapPin, Microscope, ShieldCheck, Truck, Users } from 'lucide-react'
+import { ArrowUpRight, BadgeCheck, Building2, CheckCircle2, Clock, FlaskConical, MapPin, Microscope, ShieldCheck, Truck, Users } from 'lucide-react'
 import { WaterHero } from '../components/animations/WaterHero'
-import { HeroVial } from '../components/animations/HeroVial'
+import { HeroReport } from '../components/animations/HeroReport'
 import { ServiceIcon } from '../components/animations/ServiceIcon'
 import { SampleJourney } from '../components/animations/SampleJourney'
 import { BrandStripes, StripeDivider } from '../components/brand/BrandStripes'
@@ -34,22 +34,23 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="on-dark relative isolate min-h-[100svh] overflow-hidden bg-navy-700 text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_70%_20%,rgba(47,111,181,.45),transparent_55%)]" />
-        <WaterHero className="-z-10" />
-        <div className="absolute -end-16 top-[104px] -z-10 hidden h-12 w-[42%] md:block">
+      <section className="on-dark relative isolate overflow-hidden bg-navy-700 text-white">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_35%,rgba(47,111,181,.40),transparent_55%)]" />
+        <div className="grain absolute inset-0 -z-10 opacity-40" />
+        <WaterHero className="-z-10 opacity-70" />
+        <div className="absolute -end-16 top-[88px] -z-10 hidden h-8 w-[38%] lg:block">
           <BrandStripes className="justify-end" />
         </div>
-        <div className="container grid min-h-[100svh] items-center gap-10 pb-28 pt-36 lg:grid-cols-[1.4fr_1fr] lg:pt-40">
-          <div>
-            <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="eyebrow !text-lime-500">
-              <span className="inline-block h-[2px] w-6 bg-current" />
+        <div className="container grid items-center gap-14 pb-24 pt-36 lg:min-h-[92svh] lg:grid-cols-[1.15fr_1fr] lg:pb-28 lg:pt-40 xl:gap-20">
+          <div className="max-w-2xl">
+            <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/85 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-lime-500" />
               {t('home.eyebrow')}
             </motion.span>
-            <h1 className="mt-5 text-[2.5rem] font-extrabold leading-[1.04] !text-white sm:text-6xl xl:text-[4.1rem]">
+            <h1 className="mt-6 text-[2.35rem] font-extrabold leading-[1.08] !text-white sm:text-5xl xl:text-[3.6rem] rtl:leading-[1.35]">
               {[t('home.title1'), t('home.title2')].map((line, i) => (
-                <span key={i} className="block overflow-hidden pb-2 [text-wrap:balance]">
-                  <motion.span className={`block ${i === 1 ? 'bg-gradient-to-r from-lime-500 via-[#a7d35a] to-white bg-clip-text text-transparent rtl:bg-gradient-to-l' : ''}`} initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ delay: 0.6 + i * 0.12, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
+                <span key={i} className="block overflow-hidden pb-1 [text-wrap:balance] rtl:pb-3">
+                  <motion.span className={`block ${i === 1 ? 'text-lime-500' : ''}`} initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ delay: 0.6 + i * 0.12, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
                     {line}
                   </motion.span>
                 </span>
@@ -64,36 +65,24 @@ export default function Home() {
                 <span className="flex items-center gap-2"><Truck className="h-4 w-4" />{t('common.bookSampling')}</span>
               </Button>
             </motion.div>
-            <motion.ul initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.35 }} className="mt-10 flex flex-wrap gap-2">
-              {heroServices.map((s) => (
-                <li key={s.slug}>
-                  <Link to={`/services/${s.slug}`} className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/80 backdrop-blur transition hover:border-lime-500 hover:text-white">
-                    {pick(s.title)}
-                  </Link>
-                </li>
-              ))}
+            <motion.ul initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.35 }} className="mt-12 grid max-w-xl grid-cols-1 gap-4 border-t border-white/10 pt-7 sm:grid-cols-3">
+              {(t('home.heroTrust', { returnObjects: true }) as { t: string; d: string }[]).map((it, i) => {
+                const I = [Microscope, MapPin, Building2][i]
+                return (
+                  <li key={it.t} className="flex items-start gap-3">
+                    <I className="mt-0.5 h-5 w-5 shrink-0 text-lime-500" strokeWidth={1.7} />
+                    <span>
+                      <span className="block text-sm font-semibold text-white">{it.t}</span>
+                      <span className="block text-xs text-white/60">{it.d}</span>
+                    </span>
+                  </li>
+                )
+              })}
             </motion.ul>
           </div>
 
-          {/* hero visual */}
-          <div className="relative mx-auto hidden h-[520px] w-full max-w-md lg:block">
-            <div className="absolute inset-10 rounded-full bg-leaf-600/20 blur-3xl" />
-            <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 1 }} className="absolute inset-0 flex justify-center">
-              <motion.div animate={{ y: [0, -14, 0], rotate: [-2, 1, -2] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}>
-                <HeroVial className="h-[470px] w-auto drop-shadow-[0_30px_50px_rgba(0,0,0,.45)]" />
-              </motion.div>
-            </motion.div>
-            {[
-              { icon: MapPin, label: t('home.heroCard1'), pos: 'top-16 -start-6', d: 1.6 },
-              { icon: FlaskConical, label: t('home.heroCard2'), pos: 'top-[46%] -end-10', d: 1.9, live: true },
-              { icon: FileCheck2, label: t('home.heroCard3'), pos: 'bottom-14 -start-2', d: 2.2 },
-            ].map(({ icon: I, label, pos, d, live }) => (
-              <motion.div key={label} initial={{ opacity: 0, scale: 0.85, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ delay: d, type: 'spring', stiffness: 160, damping: 16 }} className={`absolute ${pos} flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-medium shadow-lift backdrop-blur-xl`}>
-                <span className={`grid h-9 w-9 place-items-center rounded-xl ${live ? 'bg-lime-500 text-navy-900' : 'bg-leaf-600 text-white'}`}><I className="h-4 w-4" /></span>
-                <span>{label}</span>
-                {live ? <span className="h-2 w-2 animate-pulse rounded-full bg-lime-500" /> : <CheckCircle2 className="h-4 w-4 text-lime-500" />}
-              </motion.div>
-            ))}
+          <div className="hidden lg:block">
+            <HeroReport />
           </div>
         </div>
       </section>

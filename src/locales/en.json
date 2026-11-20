@@ -1,159 +1,427 @@
 {
   "nav": {
-    "home": "Home", "about": "About", "services": "Services", "sampling": "Sampling", "laboratory": "Laboratory",
-    "walkin": "Walk-in Clients", "industries": "Industries", "contact": "Contact", "faq": "FAQ", "track": "Track Report",
-    "quote": "Request a Quote", "allServices": "View all services", "menu": "Menu", "close": "Close", "skip": "Skip to content",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "sampling": "Sampling",
+    "laboratory": "Laboratory",
+    "walkin": "Walk-in Clients",
+    "industries": "Industries",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "track": "Track Report",
+    "quote": "Request a Quote",
+    "allServices": "View all services",
+    "menu": "Menu",
+    "close": "Close",
+    "skip": "Skip to content",
     "servicesIntro": "From one bottle of well water to a Kingdom-wide monitoring programme."
   },
   "common": {
-    "learnMore": "Learn more", "bookSampling": "Book Sample Collection", "getDirections": "Get Directions", "callUs": "Call us",
-    "emailUs": "Email us", "whatsapp": "WhatsApp", "visit": "Visit the lab", "hours": "Working hours", "memberOf": "A member of AECON – Alemad Alarabi Environmental Consultancy",
-    "pendingConfirmation": "pending confirmation", "priceOnRequest": "Price on request", "backHome": "Back to home"
+    "learnMore": "Learn more",
+    "bookSampling": "Book Sample Collection",
+    "getDirections": "Get Directions",
+    "callUs": "Call us",
+    "emailUs": "Email us",
+    "whatsapp": "WhatsApp",
+    "visit": "Visit the lab",
+    "hours": "Working hours",
+    "memberOf": "A member of AECON – Alemad Alarabi Environmental Consultancy",
+    "pendingConfirmation": "pending confirmation",
+    "priceOnRequest": "Price on request",
+    "backHome": "Back to home"
   },
   "seo": {
     "home": "BSA.lab | Environmental Testing Laboratory in Riyadh, Saudi Arabia",
     "homeDesc": "Water, wastewater, STP, soil, sludge and marine testing in Riyadh, with field sampling across Saudi Arabia.",
-    "about": "About BSA.lab | AECON's Environmental Laboratory", "services": "Environmental Testing Services | BSA.lab",
-    "sampling": "Field Sampling Across Saudi Arabia | BSA.lab", "laboratory": "Our Laboratory | BSA.lab Riyadh",
-    "walkin": "Walk-in Water & Soil Testing in Riyadh | BSA.lab", "industries": "Industries We Serve | BSA.lab",
-    "contact": "Request a Quote | BSA.lab", "faq": "FAQ | BSA.lab", "track": "Track Your Report | BSA.lab",
-    "privacy": "Privacy Policy | BSA.lab", "terms": "Terms of Use | BSA.lab", "notFound": "Page not found | BSA.lab"
+    "about": "About BSA.lab | AECON's Environmental Laboratory",
+    "services": "Environmental Testing Services | BSA.lab",
+    "sampling": "Field Sampling Across Saudi Arabia | BSA.lab",
+    "laboratory": "Our Laboratory | BSA.lab Riyadh",
+    "walkin": "Walk-in Water & Soil Testing in Riyadh | BSA.lab",
+    "industries": "Industries We Serve | BSA.lab",
+    "contact": "Request a Quote | BSA.lab",
+    "faq": "FAQ | BSA.lab",
+    "track": "Track Your Report | BSA.lab",
+    "privacy": "Privacy Policy | BSA.lab",
+    "terms": "Terms of Use | BSA.lab",
+    "notFound": "Page not found | BSA.lab"
   },
   "home": {
     "eyebrow": "Environmental Laboratory • Riyadh",
     "title1": "Accurate environmental testing",
     "title2": "for a sustainable Saudi Arabia",
     "sub": "Water, wastewater, soil, sludge and marine testing, from on-site sampling to certified laboratory reports. Based in Riyadh, serving the entire Kingdom.",
-    "heroCard1": "Sample received", "heroCard2": "COD analysis • in progress", "heroCard3": "Report issued",
-    "servicesEyebrow": "What we test", "servicesTitle": "Every sample, every matrix, one trusted lab",
+    "heroCard1": "Sample received",
+    "heroCard2": "COD analysis • in progress",
+    "heroCard3": "Report issued",
+    "servicesEyebrow": "What we test",
+    "servicesTitle": "Every sample, every matrix, one trusted lab",
     "servicesSub": "Six core testing lines backed by our own in-house laboratory and field team.",
-    "journeyEyebrow": "How it works", "journeyTitle": "The journey of a sample",
+    "journeyEyebrow": "How it works",
+    "journeyTitle": "The journey of a sample",
     "journeySub": "From the moment our engineer fills the bottle to the moment you receive a signed report, every step is controlled and documented.",
     "journey": [
-      { "t": "Site sampling", "d": "Our engineer collects a representative sample with the right container and preservative." },
-      { "t": "Chain of custody", "d": "Each sample is labelled, GPS-tagged and logged on a custody form." },
-      { "t": "Lab reception", "d": "Samples are checked for temperature and integrity, then registered with a unique ID." },
-      { "t": "Analysis", "d": "Our chemists and microbiologists run validated methods on calibrated instruments." },
-      { "t": "QA/QC review", "d": "Blanks, duplicates and reference standards are checked before results are released." },
-      { "t": "Certified report", "d": "You receive a signed PDF report that compares results against the applicable limits." }
+      {
+        "t": "Site sampling",
+        "d": "Our engineer collects a representative sample with the right container and preservative."
+      },
+      {
+        "t": "Chain of custody",
+        "d": "Each sample is labelled, GPS-tagged and logged on a custody form."
+      },
+      {
+        "t": "Lab reception",
+        "d": "Samples are checked for temperature and integrity, then registered with a unique ID."
+      },
+      {
+        "t": "Analysis",
+        "d": "Our chemists and microbiologists run validated methods on calibrated instruments."
+      },
+      {
+        "t": "QA/QC review",
+        "d": "Blanks, duplicates and reference standards are checked before results are released."
+      },
+      {
+        "t": "Certified report",
+        "d": "You receive a signed PDF report that compares results against the applicable limits."
+      }
     ],
-    "waysEyebrow": "Two ways to work with us", "waysTitle": "We come to you, or you come to us",
-    "way1Title": "We come to you", "way1Text": "Our field engineers collect samples at your factory, STP, farm, construction site or coastal project, anywhere in the Kingdom.",
-    "way1Points": ["Kingdom-wide coverage", "Calibrated field meters", "Chain-of-custody documentation"],
-    "way2Title": "Walk in to our lab", "way2Text": "Bring your water, soil or sludge sample directly to our Riyadh laboratory. No appointment needed.",
-    "way2Points": ["Free sample bottles", "Simple test packages", "Results by email"],
+    "waysEyebrow": "Two ways to work with us",
+    "waysTitle": "We come to you, or you come to us",
+    "way1Title": "We come to you",
+    "way1Text": "Our field engineers collect samples at your factory, STP, farm, construction site or coastal project, anywhere in the Kingdom.",
+    "way1Points": [
+      "Kingdom-wide coverage",
+      "Calibrated field meters",
+      "Chain-of-custody documentation"
+    ],
+    "way2Title": "Walk in to our lab",
+    "way2Text": "Bring your water, soil or sludge sample directly to our Riyadh laboratory. No appointment needed.",
+    "way2Points": [
+      "Free sample bottles",
+      "Simple test packages",
+      "Results by email"
+    ],
     "statsTitle": "Numbers that grow with every sample",
-    "stats": { "samples": "Samples analysed", "parameters": "Parameters tested", "projects": "Projects served", "regions": "Regions covered" },
-    "industriesEyebrow": "Industries", "industriesTitle": "Trusted across the sectors shaping the Kingdom",
-    "whyEyebrow": "Why BSA.lab", "whyTitle": "Consultancy insight, laboratory precision",
+    "stats": {
+      "samples": "Samples analysed",
+      "parameters": "Parameters tested",
+      "projects": "Projects served",
+      "regions": "Regions covered"
+    },
+    "industriesEyebrow": "Industries",
+    "industriesTitle": "Trusted across the sectors shaping the Kingdom",
+    "whyEyebrow": "Why BSA.lab",
+    "whyTitle": "Consultancy insight, laboratory precision",
     "why": [
-      { "t": "In-house laboratory", "d": "Your samples never leave our control. Analysis happens in our own Riyadh lab." },
-      { "t": "Trained field engineers", "d": "Correct sampling is half the result. Our team is trained in ISO and APHA sampling practice." },
-      { "t": "Chain-of-custody sampling", "d": "Every sample is traceable from site to report." },
-      { "t": "Fast turnaround", "d": "Routine reports in days, with urgent service when deadlines are tight." },
-      { "t": "Saudi regulatory focus", "d": "Reports structured to support NCEC and MEWA compliance submissions." },
-      { "t": "Backed by AECON", "d": "Consultants on hand to explain results and recommend next steps." }
+      {
+        "t": "In-house laboratory",
+        "d": "Your samples never leave our control. Analysis happens in our own Riyadh lab."
+      },
+      {
+        "t": "Trained field engineers",
+        "d": "Correct sampling is half the result. Our team is trained in ISO and APHA sampling practice."
+      },
+      {
+        "t": "Chain-of-custody sampling",
+        "d": "Every sample is traceable from site to report."
+      },
+      {
+        "t": "Fast turnaround",
+        "d": "Routine reports in days, with urgent service when deadlines are tight."
+      },
+      {
+        "t": "Saudi regulatory focus",
+        "d": "Reports structured to support NCEC and MEWA compliance submissions."
+      },
+      {
+        "t": "Backed by AECON",
+        "d": "Consultants on hand to explain results and recommend next steps."
+      }
     ],
-    "ctaTitle": "Need a sample tested?", "ctaSub": "Talk to our lab team today and get a quote within one working day."
+    "ctaTitle": "Need a sample tested?",
+    "ctaSub": "Talk to our lab team today and get a quote within one working day.",
+    "heroTrust": [
+      {
+        "t": "In-house laboratory",
+        "d": "Analysed in Riyadh"
+      },
+      {
+        "t": "KSA-wide sampling",
+        "d": "Engineers on site"
+      },
+      {
+        "t": "Member of AECON",
+        "d": "Consultancy backed"
+      }
+    ],
+    "report": {
+      "kind": "Certificate of analysis",
+      "title": "Treated effluent compliance",
+      "param": "Parameter",
+      "result": "Result",
+      "s1": "Sampled on site",
+      "s2": "Analysed in lab",
+      "s3": "QA/QC approved",
+      "note": "Illustrative example report",
+      "stamp": "Compliant"
+    }
   },
   "about": {
-    "eyebrow": "About BSA.lab", "title": "The laboratory arm of AECON",
+    "eyebrow": "About BSA.lab",
+    "title": "The laboratory arm of AECON",
     "sub": "BSA.lab (Biological System Analysis) was set up so that AECON's clients could get consultancy, field sampling and laboratory analysis under one roof.",
     "storyTitle": "Our story",
     "story1": "For years, AECON has helped developers, industries and government entities across Saudi Arabia understand and manage their environmental impact, through EIAs, air quality monitoring, marine studies, soil investigation and remediation.",
     "story2": "Every one of those projects depends on reliable laboratory data. BSA.lab brings that capability in-house: a dedicated environmental laboratory and field sampling team, focused on water, wastewater, soil, sludge and marine testing.",
-    "missionTitle": "Mission", "mission": "To give every client fast, accurate and defensible environmental data that helps them protect people, comply with Saudi regulations and make better decisions.",
-    "visionTitle": "Vision", "vision": "To be the most trusted environmental laboratory in the Kingdom, known for precision, integrity and service.",
+    "missionTitle": "Mission",
+    "mission": "To give every client fast, accurate and defensible environmental data that helps them protect people, comply with Saudi regulations and make better decisions.",
+    "visionTitle": "Vision",
+    "vision": "To be the most trusted environmental laboratory in the Kingdom, known for precision, integrity and service.",
     "valuesTitle": "Our values",
     "values": [
-      { "t": "Accuracy", "d": "Validated methods, calibrated instruments and rigorous QA/QC." },
-      { "t": "Integrity", "d": "Impartial results, reported exactly as measured." },
-      { "t": "Sustainability", "d": "Data that helps protect the Kingdom's water, soil and seas." },
-      { "t": "Responsiveness", "d": "Clear communication and turnaround you can plan around." }
+      {
+        "t": "Accuracy",
+        "d": "Validated methods, calibrated instruments and rigorous QA/QC."
+      },
+      {
+        "t": "Integrity",
+        "d": "Impartial results, reported exactly as measured."
+      },
+      {
+        "t": "Sustainability",
+        "d": "Data that helps protect the Kingdom's water, soil and seas."
+      },
+      {
+        "t": "Responsiveness",
+        "d": "Clear communication and turnaround you can plan around."
+      }
     ],
     "visionEyebrow": "Saudi Vision 2030",
     "vision2030Title": "Supporting the Kingdom's environmental ambitions",
     "vision2030": "Vision 2030, the Saudi Green Initiative and the national push to reuse treated wastewater all depend on measurement. BSA.lab supports operators, developers and regulators with the data they need to meet these goals.",
-    "aeconTitle": "Part of AECON", "aeconText": "AECON is a Riyadh-based environmental and geotechnical consultancy delivering EIAs, air quality monitoring, marine and coastal studies, soil investigation, hydrogeology and site remediation across Saudi Arabia.", "aeconCta": "Visit aecon-sa.com",
+    "aeconTitle": "Part of AECON",
+    "aeconText": "AECON is a Riyadh-based environmental and geotechnical consultancy delivering EIAs, air quality monitoring, marine and coastal studies, soil investigation, hydrogeology and site remediation across Saudi Arabia.",
+    "aeconCta": "Visit aecon-sa.com",
     "qualityTitle": "Quality commitment",
-    "quality": ["Documented QA/QC on every analytical batch", "Regular instrument calibration and maintenance", "Participation in proficiency testing schemes", "Methods based on APHA Standard Methods, ASTM, US EPA and ISO"]
+    "quality": [
+      "Documented QA/QC on every analytical batch",
+      "Regular instrument calibration and maintenance",
+      "Participation in proficiency testing schemes",
+      "Methods based on APHA Standard Methods, ASTM, US EPA and ISO"
+    ]
   },
   "services": {
-    "eyebrow": "Our services", "title": "Environmental testing services",
+    "eyebrow": "Our services",
+    "title": "Environmental testing services",
     "sub": "Water, wastewater, soil, sludge, marine and groundwater, sampled by our engineers and analysed in our own laboratory.",
-    "overview": "Overview", "scope": "What we cover", "whoNeeds": "Who needs it", "parameters": "Parameters we test", "searchParams": "Search parameters…",
-    "noParams": "No parameter matches your search. Ask us, as we may still test it.", "samplingNotes": "Sampling notes", "turnaround": "Typical turnaround",
-    "related": "Related services", "ctaTitle": "Ready to test?", "ctaSub": "Tell us what you need to test and we'll send a clear quote.", "notFound": "Service not found"
+    "overview": "Overview",
+    "scope": "What we cover",
+    "whoNeeds": "Who needs it",
+    "parameters": "Parameters we test",
+    "searchParams": "Search parameters…",
+    "noParams": "No parameter matches your search. Ask us, as we may still test it.",
+    "samplingNotes": "Sampling notes",
+    "turnaround": "Typical turnaround",
+    "related": "Related services",
+    "ctaTitle": "Ready to test?",
+    "ctaSub": "Tell us what you need to test and we'll send a clear quote.",
+    "notFound": "Service not found"
   },
   "sampling": {
-    "eyebrow": "Field services", "title": "Our engineers come to your site",
+    "eyebrow": "Field services",
+    "title": "Our engineers come to your site",
     "sub": "Correct sampling is half of an accurate result. Our field team collects, preserves and delivers your samples under full chain of custody, anywhere in Saudi Arabia.",
     "stepsTitle": "How we collect your samples",
     "steps": [
-      { "t": "Plan", "d": "We agree the sampling points, parameters and schedule with you, and prepare the right bottles and preservatives." },
-      { "t": "Mobilise", "d": "Our engineer arrives with calibrated meters, cool boxes, PPE and a sampling kit for your site." },
-      { "t": "Measure on site", "d": "Unstable parameters such as pH, temperature, DO and chlorine are measured at the sampling point." },
-      { "t": "Collect & preserve", "d": "Representative grab or composite samples are taken, preserved and labelled." },
-      { "t": "Document", "d": "GPS coordinates, photos and field sheets are recorded, and the chain-of-custody form is signed." },
-      { "t": "Deliver", "d": "Samples travel chilled to our Riyadh laboratory within their holding time." }
+      {
+        "t": "Plan",
+        "d": "We agree the sampling points, parameters and schedule with you, and prepare the right bottles and preservatives."
+      },
+      {
+        "t": "Mobilise",
+        "d": "Our engineer arrives with calibrated meters, cool boxes, PPE and a sampling kit for your site."
+      },
+      {
+        "t": "Measure on site",
+        "d": "Unstable parameters such as pH, temperature, DO and chlorine are measured at the sampling point."
+      },
+      {
+        "t": "Collect & preserve",
+        "d": "Representative grab or composite samples are taken, preserved and labelled."
+      },
+      {
+        "t": "Document",
+        "d": "GPS coordinates, photos and field sheets are recorded, and the chain-of-custody form is signed."
+      },
+      {
+        "t": "Deliver",
+        "d": "Samples travel chilled to our Riyadh laboratory within their holding time."
+      }
     ],
-    "mapTitle": "Coverage across the Kingdom", "mapSub": "Based in Riyadh and mobilising to every region.",
-    "formTitle": "Book a sample collection", "formSub": "Tell us where and when, and our team will confirm within one working day."
+    "mapTitle": "Coverage across the Kingdom",
+    "mapSub": "Based in Riyadh and mobilising to every region.",
+    "formTitle": "Book a sample collection",
+    "formSub": "Tell us where and when, and our team will confirm within one working day."
   },
   "lab": {
-    "eyebrow": "Our laboratory", "title": "Inside the BSA.lab laboratory",
+    "eyebrow": "Our laboratory",
+    "title": "Inside the BSA.lab laboratory",
     "sub": "A dedicated environmental laboratory in Riyadh with wet chemistry, instrumental analysis and microbiology sections.",
     "sectionsTitle": "Laboratory sections",
     "sections": [
-      { "t": "Sample reception", "d": "Temperature and integrity checks, registration and secure cold storage." },
-      { "t": "Wet chemistry", "d": "BOD, COD, solids, alkalinity, hardness, nutrients and anions." },
-      { "t": "Instrumental analysis", "d": "Metals and organic contaminants on spectroscopic and chromatographic instruments." },
-      { "t": "Microbiology", "d": "Coliforms, E. coli, HPC, Legionella and pathogens in a dedicated clean area." }
+      {
+        "t": "Sample reception",
+        "d": "Temperature and integrity checks, registration and secure cold storage."
+      },
+      {
+        "t": "Wet chemistry",
+        "d": "BOD, COD, solids, alkalinity, hardness, nutrients and anions."
+      },
+      {
+        "t": "Instrumental analysis",
+        "d": "Metals and organic contaminants on spectroscopic and chromatographic instruments."
+      },
+      {
+        "t": "Microbiology",
+        "d": "Coliforms, E. coli, HPC, Legionella and pathogens in a dedicated clean area."
+      }
     ],
-    "equipmentTitle": "Key equipment", "equipmentNote": "Equipment list to be confirmed by the laboratory manager.",
+    "equipmentTitle": "Key equipment",
+    "equipmentNote": "Equipment list to be confirmed by the laboratory manager.",
     "qaTitle": "QA/QC process",
-    "qa": ["Method blanks and reagent blanks", "Duplicate and spiked samples", "Certified reference materials", "Calibration verification", "Technical review and sign-off"],
-    "methodsTitle": "Method references", "retentionTitle": "Sample retention",
+    "qa": [
+      "Method blanks and reagent blanks",
+      "Duplicate and spiked samples",
+      "Certified reference materials",
+      "Calibration verification",
+      "Technical review and sign-off"
+    ],
+    "methodsTitle": "Method references",
+    "retentionTitle": "Sample retention",
     "retention": "Samples are retained after reporting for a defined period so results can be re-checked if needed. Ask us about retention for your project.",
-    "galleryTitle": "Gallery", "galleryNote": "Indicative photos. Real laboratory photos coming soon."
+    "galleryTitle": "Gallery",
+    "galleryNote": "Indicative photos. Real laboratory photos coming soon."
   },
   "walkin": {
-    "eyebrow": "Walk-in clients", "title": "Bring your sample. We'll do the rest.",
+    "eyebrow": "Walk-in clients",
+    "title": "Bring your sample. We'll do the rest.",
     "sub": "No appointment needed. Drop off your water, soil or sludge sample at our Riyadh laboratory and receive your results by email.",
     "whoTitle": "Who walks in",
-    "who": ["Homeowners testing well or tank water", "Farmers checking irrigation water and soil", "Contractors and small factories", "Restaurants and food outlets", "Swimming pool operators", "Anyone who needs a quick, reliable test"],
-    "howTitle": "How to bring your sample", "howSub": "Follow this quick guide so your result is reliable.",
-    "th": { "test": "Test type", "container": "Container", "keep": "Keep it", "max": "Bring within" },
-    "packagesTitle": "Popular packages", "packagesSub": "Prices on request. Ask our reception team for current rates.",
+    "who": [
+      "Homeowners testing well or tank water",
+      "Farmers checking irrigation water and soil",
+      "Contractors and small factories",
+      "Restaurants and food outlets",
+      "Swimming pool operators",
+      "Anyone who needs a quick, reliable test"
+    ],
+    "howTitle": "How to bring your sample",
+    "howSub": "Follow this quick guide so your result is reliable.",
+    "th": {
+      "test": "Test type",
+      "container": "Container",
+      "keep": "Keep it",
+      "max": "Bring within"
+    },
+    "packagesTitle": "Popular packages",
+    "packagesSub": "Prices on request. Ask our reception team for current rates.",
     "visitTitle": "Visit us"
   },
   "industries": {
-    "eyebrow": "Industries we serve", "title": "Environmental data for every sector",
+    "eyebrow": "Industries we serve",
+    "title": "Environmental data for every sector",
     "sub": "Our clients range from single households to giga-projects. What they share is a need for results they can rely on."
   },
   "contact": {
-    "eyebrow": "Request a quote", "title": "Let's get your samples tested",
+    "eyebrow": "Request a quote",
+    "title": "Let's get your samples tested",
     "sub": "Answer a few quick questions and our lab team will send a clear quote within one working day.",
     "cardsTitle": "Prefer to talk?",
-    "steps": ["Services", "Samples", "Sampling", "Location", "Contact", "Files"],
-    "s1": "Which services do you need?", "s2": "Tell us about your samples", "s3": "Who will collect the samples?", "s4": "Where and when?", "s5": "Your contact details", "s6": "Anything to attach?",
-    "sampleType": "Sample type", "sampleTypePh": "e.g. STP effluent, well water, contaminated soil", "sampleCount": "Number of samples",
-    "collectUs": "BSA engineers collect", "collectUsSub": "We send a field engineer to your site", "collectMe": "I will walk in", "collectMeSub": "I'll bring the samples to the lab",
-    "city": "City", "selectCity": "Select a city", "date": "Preferred date", "name": "Full name", "company": "Company", "phone": "Mobile number", "email": "Email",
-    "cr": "CR number (optional)", "notes": "Notes (optional)", "upload": "Upload scope / BOQ (optional)", "uploadHint": "PDF, Word, Excel or image • max 10 MB",
-    "back": "Back", "next": "Continue", "submit": "Send request", "sending": "Sending…",
-    "successTitle": "Request received", "successText": "Thank you. Our lab team will contact you within one working day.", "another": "Send another request",
-    "err": { "services": "Choose at least one service", "sampleType": "Tell us the sample type", "count": "Enter at least 1", "city": "Choose a city", "name": "Enter your name", "phone": "Enter a valid Saudi mobile, e.g. +9665XXXXXXXX", "email": "Enter a valid email" }
+    "steps": [
+      "Services",
+      "Samples",
+      "Sampling",
+      "Location",
+      "Contact",
+      "Files"
+    ],
+    "s1": "Which services do you need?",
+    "s2": "Tell us about your samples",
+    "s3": "Who will collect the samples?",
+    "s4": "Where and when?",
+    "s5": "Your contact details",
+    "s6": "Anything to attach?",
+    "sampleType": "Sample type",
+    "sampleTypePh": "e.g. STP effluent, well water, contaminated soil",
+    "sampleCount": "Number of samples",
+    "collectUs": "BSA engineers collect",
+    "collectUsSub": "We send a field engineer to your site",
+    "collectMe": "I will walk in",
+    "collectMeSub": "I'll bring the samples to the lab",
+    "city": "City",
+    "selectCity": "Select a city",
+    "date": "Preferred date",
+    "name": "Full name",
+    "company": "Company",
+    "phone": "Mobile number",
+    "email": "Email",
+    "cr": "CR number (optional)",
+    "notes": "Notes (optional)",
+    "upload": "Upload scope / BOQ (optional)",
+    "uploadHint": "PDF, Word, Excel or image • max 10 MB",
+    "back": "Back",
+    "next": "Continue",
+    "submit": "Send request",
+    "sending": "Sending…",
+    "successTitle": "Request received",
+    "successText": "Thank you. Our lab team will contact you within one working day.",
+    "another": "Send another request",
+    "err": {
+      "services": "Choose at least one service",
+      "sampleType": "Tell us the sample type",
+      "count": "Enter at least 1",
+      "city": "Choose a city",
+      "name": "Enter your name",
+      "phone": "Enter a valid Saudi mobile, e.g. +9665XXXXXXXX",
+      "email": "Enter a valid email"
+    }
   },
-  "booking": { "site": "Site / facility name", "submit": "Book collection", "success": "Booking request received. We'll confirm the visit shortly." },
-  "faq": { "eyebrow": "FAQ", "title": "Frequently asked questions", "sub": "Can't find your answer? Message us on WhatsApp." },
-  "track": { "eyebrow": "Results portal", "title": "Track your report", "sub": "Enter the reference number printed on your sample receipt.", "placeholder": "e.g. BSA-2026-00123", "button": "Track", "soon": "Coming soon: our online results portal. For now, contact us and we'll update you right away." },
-  "notFound": { "title": "This test tube is empty", "sub": "The page you're looking for doesn't exist or has moved." },
+  "booking": {
+    "site": "Site / facility name",
+    "submit": "Book collection",
+    "success": "Booking request received. We'll confirm the visit shortly."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "sub": "Can't find your answer? Message us on WhatsApp."
+  },
+  "track": {
+    "eyebrow": "Results portal",
+    "title": "Track your report",
+    "sub": "Enter the reference number printed on your sample receipt.",
+    "placeholder": "e.g. BSA-2026-00123",
+    "button": "Track",
+    "soon": "Coming soon: our online results portal. For now, contact us and we'll update you right away."
+  },
+  "notFound": {
+    "title": "This test tube is empty",
+    "sub": "The page you're looking for doesn't exist or has moved."
+  },
   "footer": {
     "about": "BSA.lab is the environmental testing laboratory of AECON, providing water, wastewater, soil, sludge and marine analysis across Saudi Arabia.",
-    "services": "Services", "quick": "Quick links", "contact": "Contact", "rights": "All rights reserved.", "privacy": "Privacy", "terms": "Terms"
+    "services": "Services",
+    "quick": "Quick links",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
   },
   "legal": {
-    "privacyTitle": "Privacy Policy", "termsTitle": "Terms of Use", "updated": "Last updated: November 2026"
+    "privacyTitle": "Privacy Policy",
+    "termsTitle": "Terms of Use",
+    "updated": "Last updated: November 2026"
   }
 }

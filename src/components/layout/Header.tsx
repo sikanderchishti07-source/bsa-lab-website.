@@ -67,12 +67,12 @@ export function Header() {
         {t('nav.skip')}
       </a>
       <header className={`on-dark fixed inset-x-0 top-0 z-50 transition-all duration-500 ${solid ? 'bg-navy-700/90 shadow-[0_10px_30px_-15px_rgba(0,0,0,.5)] backdrop-blur-xl' : 'bg-transparent'}`}>
-        <div className={`container flex items-center justify-between gap-6 transition-all duration-500 ${overHero ? 'h-24' : 'h-[72px]'}`}>
+        <div className={`container flex items-center justify-between gap-6 transition-all duration-500 ${overHero ? 'h-[84px]' : 'h-[72px]'}`}>
           <Link to="/" className="shrink-0" aria-label="BSA.lab home">
-            <Logo variant="light" className={`w-auto transition-all duration-500 ${overHero ? 'h-14' : 'h-11'}`} />
+            <Logo variant="light" className={`w-auto transition-all duration-500 ${overHero ? 'h-12' : 'h-10'}`} />
           </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
+          <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Main">
             {links.map((l) =>
               l.mega ? (
                 <div key={l.key} className="relative" onMouseEnter={() => setMega(true)} onMouseLeave={() => setMega(false)}>
@@ -81,7 +81,7 @@ export function Header() {
                     aria-haspopup="true"
                     aria-expanded={mega}
                     onFocus={() => setMega(true)}
-                    className={({ isActive }) => `flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium transition ${isActive ? 'text-lime-500' : 'text-white/85 hover:text-white'}`}
+                    className={({ isActive }) => `flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition ${isActive ? 'text-lime-500' : 'text-white/85 hover:text-white'}`}
                   >
                     {t(`nav.${l.key}`)}
                     <ChevronDown className={`h-3.5 w-3.5 transition ${mega ? 'rotate-180' : ''}`} />
@@ -123,7 +123,7 @@ export function Header() {
                   </AnimatePresence>
                 </div>
               ) : (
-                <NavLink key={l.key} to={l.to} end={l.to === '/'} className={({ isActive }) => `relative rounded-full px-3 py-2 text-sm font-medium transition ${isActive ? 'text-lime-500' : 'text-white/85 hover:text-white'}`}>
+                <NavLink key={l.key} to={l.to} end={l.to === '/'} className={({ isActive }) => `relative whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition ${isActive ? 'text-lime-500' : 'text-white/85 hover:text-white'}`}>
                   {t(`nav.${l.key}`)}
                 </NavLink>
               ),
@@ -131,9 +131,9 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-3 xl:flex">
-            <a href={site.phoneHref} className="flex items-center gap-2 text-sm font-medium text-white/85 hover:text-white" dir="ltr">
+            <a href={site.phoneHref} title={site.phone} className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white/85 hover:bg-white/15 hover:text-white" dir="ltr">
               <Phone className="h-4 w-4 text-lime-500" />
-              <span className="hidden 2xl:inline">{site.phone}</span>
+              <span className="sr-only">{site.phone}</span>
             </a>
             <LangSwitch light />
             <Button to="/contact" variant="green" magnetic>

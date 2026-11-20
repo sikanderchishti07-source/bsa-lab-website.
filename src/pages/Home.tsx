@@ -1,21 +1,18 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, BadgeCheck, Building2, CheckCircle2, Clock, FlaskConical, MapPin, Microscope, ShieldCheck, Truck, Users } from 'lucide-react'
 import { WaterHero } from '../components/animations/WaterHero'
 import { HeroReport } from '../components/animations/HeroReport'
-import { ServiceIcon } from '../components/animations/ServiceIcon'
 import { SampleJourney } from '../components/animations/SampleJourney'
+import { ServicesShowcase } from '../components/animations/ServicesShowcase'
 import { BrandStripes, StripeDivider } from '../components/brand/BrandStripes'
 import { Button } from '../components/ui/Button'
 import { SectionTitle } from '../components/ui/SectionTitle'
 import { Reveal, staggerChild, staggerParent } from '../components/ui/Reveal'
-import { TiltCard } from '../components/ui/TiltCard'
 import { Counter } from '../components/ui/Counter'
 import { Marquee } from '../components/ui/Marquee'
 import { IndustryIcon } from '../components/ui/IndustryIcon'
 import { Pending } from '../components/ui/Pending'
 import { CtaBand } from '../components/layout/CtaBand'
-import { services } from '../data/services'
 import { industries, parametersMarquee } from '../data/content'
 import { site } from '../config/site'
 import { useL } from '../lib/i18n-helpers'
@@ -29,7 +26,6 @@ export default function Home() {
   const why = t('home.why', { returnObjects: true }) as { t: string; d: string }[]
   const w1 = t('home.way1Points', { returnObjects: true }) as string[]
   const w2 = t('home.way2Points', { returnObjects: true }) as string[]
-  const heroServices = services.filter((s) => s.slug !== 'field-sampling' && s.category !== 'program')
 
   return (
     <>
@@ -102,34 +98,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="relative bg-mist-50 py-24 lg:py-32">
-        <div className="container">
-          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <SectionTitle eyebrow={t('home.servicesEyebrow')} title={t('home.servicesTitle')} sub={t('home.servicesSub')} />
-            <Reveal><Button to="/services" variant="navy" arrow>{t('nav.allServices')}</Button></Reveal>
-          </div>
-          <motion.ul variants={staggerParent} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }} className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {heroServices.map((s, i) => (
-              <motion.li key={s.slug} variants={staggerChild}>
-                <TiltCard className="group h-full rounded-3xl">
-                  <Link to={`/services/${s.slug}`} className="card relative flex h-full flex-col overflow-hidden rounded-3xl p-7 transition-shadow duration-500 hover:shadow-lift">
-                    <span className="absolute end-6 top-6 font-display text-5xl font-extrabold text-navy-700/[0.05]">0{i + 1}</span>
-                    <ServiceIcon icon={s.icon} />
-                    <h3 className="mt-6 text-xl font-bold">{pick(s.title)}</h3>
-                    <p className="mt-2 flex-1 text-[15px] leading-relaxed">{pick(s.short)}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-leaf-600">
-                      {t('common.learnMore')}
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 rtl:-scale-x-100" />
-                    </span>
-                    <span className="absolute bottom-0 start-0 h-1 w-0 bg-gradient-to-r from-leaf-600 to-lime-500 transition-all duration-500 group-hover:w-full rtl:bg-gradient-to-l" />
-                  </Link>
-                </TiltCard>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </div>
-      </section>
+      {/* SERVICES — pinned bento showcase */}
+      <ServicesShowcase />
 
       {/* SAMPLE JOURNEY */}
       <section className="overflow-hidden bg-white py-24 lg:py-0">

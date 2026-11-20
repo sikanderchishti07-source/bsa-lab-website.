@@ -170,6 +170,20 @@
       "note": "Illustrative example report",
       "stamp": "Compliant",
       "limit": "Saudi regulatory limit"
+    },
+    "showcase": {
+      "sub": "Eleven testing services and compliance programmes, all analysed in our own Riyadh laboratory.",
+      "hint": "Click any card to open the full service page",
+      "params": "parameters",
+      "keyParams": "Key parameters",
+      "limitsIncluded": "Your report compares results with the Saudi limits that apply to this sample.",
+      "accNote": "{{n}} tests are included in our SAC accreditation application (in progress).",
+      "fullPage": "Open full service page",
+      "riyadh": "Riyadh laboratory",
+      "catalogue": "Test catalogue",
+      "testsInScope": "tests in our scope",
+      "turnaround": "Turnaround",
+      "days": "working days, routine"
     }
   },
   "about": {
@@ -486,5 +500,45 @@
     "ctaTitle": "Not sure which tests you need?",
     "ctaSub": "Tell us what the sample is and why it is being tested. We will recommend the right package.",
     "scopeBadge": "Applied"
+  },
+  "serviceDetail": {
+    "atGlance": "At a glance",
+    "factParams": "Parameters tested",
+    "limitsYes": "Results compared with the applicable Saudi limits",
+    "limitsOnRequest": "Compared with your permit or project limits on request",
+    "factQuality": "Quality system",
+    "factQualityV": "ISO/IEC 17025 · SAC accreditation in progress",
+    "onThisPage": "On this page",
+    "nav": {
+      "overview": "Overview",
+      "process": "How it works",
+      "parameters": "Parameters",
+      "sampling": "Sampling",
+      "limits": "Saudi limits"
+    },
+    "processTitle": "From your request to a signed report",
+    "steps": [
+      {
+        "t": "Request & quote",
+        "d": "Tell us the sample type, location and tests. We confirm the scope and send a clear quote within one working day."
+      },
+      {
+        "t": "Sampling or drop-off",
+        "d": ""
+      },
+      {
+        "t": "Laboratory analysis",
+        "d": "Samples are logged with a unique ID and analysed in our Riyadh lab using standard methods, with QA/QC on every batch."
+      },
+      {
+        "t": "Signed report",
+        "d": "You receive a signed PDF report comparing each result with the applicable limits, ready for your files or regulator."
+      }
+    ],
+    "paramsCount": "{{n}} parameters available for this service",
+    "methodsLink": "See methods, units and detection limits in the Test Catalogue",
+    "samplingTitle": "Getting the sample right",
+    "walkInLink": "Bring a sample to the lab",
+    "keepCold": "Keep samples cold"
   }
 }

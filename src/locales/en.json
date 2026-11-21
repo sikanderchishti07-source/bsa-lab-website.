@@ -190,7 +190,23 @@
       "all": "Explore all industries",
       "services": "Relevant services",
       "tests": "Typical tests"
-    }
+    },
+    "whySub": "Backed by AECON's environmental consultancy, our Riyadh lab brings sampling, analysis and interpretation together in one accountable team.",
+    "whyMore": "About BSA.lab",
+    "whyFacts": [
+      {
+        "v": "60",
+        "l": "Tests in our catalogue"
+      },
+      {
+        "v": "25",
+        "l": "Metals by ICP-MS"
+      },
+      {
+        "v": "6",
+        "l": "Working days turnaround"
+      }
+    ]
   },
   "about": {
     "eyebrow": "About BSA.lab",

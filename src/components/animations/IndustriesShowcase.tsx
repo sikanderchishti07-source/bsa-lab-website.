@@ -10,12 +10,12 @@ const img = (icon: string) => `${import.meta.env.BASE_URL}images/industries/${ic
 export function IndustriesShowcase() {
   const { t, pick } = useL()
   return (
-    <section className="relative py-24 lg:py-32">
-      <div className="container">
-        <div className="grid gap-8 border-b border-navy-700/10 pb-10 lg:grid-cols-[1.3fr_1fr] lg:items-end">
+    <section className="relative py-20 lg:flex lg:min-h-[calc(100svh-72px)] lg:items-center lg:py-10">
+      <div className="container w-full">
+        <div className="grid gap-6 border-b border-navy-700/10 pb-7 lg:grid-cols-[1.3fr_1fr] lg:items-end">
           <div>
             <span className="eyebrow"><span className="inline-block h-[2px] w-6 bg-current" />{t('home.industriesEyebrow')}</span>
-            <h2 className="mt-4 text-3xl font-extrabold leading-[1.1] [text-wrap:balance] sm:text-4xl lg:text-[2.85rem] rtl:leading-[1.3]">{t('home.industriesTitle')}</h2>
+            <h2 className="mt-4 text-3xl font-extrabold leading-[1.1] [text-wrap:balance] sm:text-4xl lg:text-[2.4rem] rtl:leading-[1.3]">{t('home.industriesTitle')}</h2>
           </div>
           <div className="lg:justify-self-end">
             <p className="max-w-md leading-relaxed">{t('home.industryPanel.sub')}</p>
@@ -25,7 +25,7 @@ export function IndustriesShowcase() {
           </div>
         </div>
 
-        <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((ind, i) => (
             <motion.li
               key={ind.icon}
@@ -36,7 +36,7 @@ export function IndustriesShowcase() {
             >
               <Link
                 to="/industries"
-                className="group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-navy-900 sm:aspect-[3/4]"
+                className="group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-navy-900 sm:aspect-[3/4] lg:aspect-auto lg:h-[clamp(200px,calc((100svh-72px-260px)/2),330px)]"
               >
                 <img src={img(ind.icon)} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition duration-[900ms] ease-out group-hover:scale-[1.07] group-focus-visible:scale-[1.07]" />
                 <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/35 to-navy-900/0" />

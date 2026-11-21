@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, BadgeCheck, Building2, CheckCircle2, Clock, FlaskConical, MapPin, Microscope, ShieldCheck, Truck, Users } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, ArrowUpRight, BadgeCheck, Building2, CheckCircle2, Clock, FlaskConical, MapPin, Microscope, ShieldCheck, Truck, Users } from 'lucide-react'
 import { WaterHero } from '../components/animations/WaterHero'
 import { HeroReport } from '../components/animations/HeroReport'
 import { SampleJourney } from '../components/animations/SampleJourney'
 import { ServicesShowcase } from '../components/animations/ServicesShowcase'
 import { IndustriesShowcase } from '../components/animations/IndustriesShowcase'
-import { BrandStripes, StripeDivider } from '../components/brand/BrandStripes'
+import { StripeDivider } from '../components/brand/BrandStripes'
 import { Button } from '../components/ui/Button'
 import { SectionTitle } from '../components/ui/SectionTitle'
 import { Reveal } from '../components/ui/Reveal'
@@ -167,25 +168,61 @@ export default function Home() {
       <StripeDivider />
 
       {/* WHY */}
-      <section className="relative py-24 lg:py-32">
-        <div className="container grid gap-14 lg:grid-cols-[1fr_1.5fr]">
-          <div className="lg:sticky lg:top-32 lg:self-start">
+      <section className="relative overflow-hidden border-y border-aqua-400/15 bg-gradient-to-br from-[#E6EEFA] via-[#F1F6FD] to-[#D8E5F6] py-20 lg:flex lg:min-h-[calc(100svh-72px)] lg:items-center lg:py-16">
+        {/* light technical background */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <svg className="absolute inset-0 h-full w-full text-aqua-400/[0.16]" aria-hidden>
+            <defs>
+              <pattern id="why-hex" width="56" height="97" patternUnits="userSpaceOnUse" patternTransform="scale(1.1)">
+                <path d="M28 0 L56 16.2 V48.5 L28 64.7 L0 48.5 V16.2 Z M28 64.7 V97" fill="none" stroke="currentColor" strokeWidth="1" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#why-hex)" />
+          </svg>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(255,255,255,.75),transparent_60%)]" />
+          <div className="absolute -start-40 -top-20 h-[460px] w-[460px] rounded-full bg-aqua-300/30 blur-[120px]" />
+          <div className="absolute end-[20%] top-1/3 h-56 w-56 rounded-full bg-lime-500/10 blur-[90px]" />
+          <div className="absolute -end-40 -bottom-20 h-[520px] w-[520px] rounded-full bg-aqua-400/25 blur-[130px]" />
+        </div>
+
+        <div className="container relative grid gap-12 lg:grid-cols-[0.85fr_1.6fr] lg:items-center xl:gap-16">
+          <div>
             <SectionTitle eyebrow={t('home.whyEyebrow')} title={t('home.whyTitle')} />
-            <Reveal delay={0.15} className="mt-8 hidden lg:block">
-              <div className="relative h-40 w-full max-w-sm overflow-hidden rounded-3xl">
-                <BrandStripes animate={false} className="w-[140%] -ms-[20%]" />
-              </div>
+            <Reveal delay={0.1}>
+              <p className="mt-5 max-w-md leading-relaxed">{t('home.whySub')}</p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <dl className="mt-8 grid max-w-md grid-cols-3 divide-x divide-navy-700/10 rounded-2xl border border-navy-700/10 bg-white/80 shadow-card backdrop-blur rtl:divide-x-reverse">
+                {(t('home.whyFacts', { returnObjects: true }) as { v: string; l: string }[]).map((f) => (
+                  <div key={f.l} className="px-4 py-4 text-center">
+                    <dt className="font-display text-2xl font-extrabold text-navy-700" dir="ltr">{f.v}</dt>
+                    <dd className="mt-1 text-xs leading-snug text-ink-600">{f.l}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <Link to="/about" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-navy-700 hover:text-leaf-600">
+                {t('home.whyMore')}<ArrowRight className="h-4 w-4 rtl:-scale-x-100" />
+              </Link>
             </Reveal>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2">
+
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {why.map((w, i) => {
               const I = whyIcons[i]
               return (
-                <Reveal key={i} delay={(i % 2) * 0.08}>
-                  <div className="group h-full rounded-3xl border border-navy-700/10 p-7 transition duration-500 hover:-translate-y-1 hover:border-leaf-600/40 hover:shadow-card">
-                    <I className="h-8 w-8 text-leaf-600 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.6} />
-                    <h3 className="mt-5 text-lg font-bold">{w.t}</h3>
-                    <p className="mt-2 text-[15px] leading-relaxed">{w.d}</p>
+                <Reveal key={i} delay={(i % 3) * 0.08}>
+                  <div className="group relative h-full overflow-hidden rounded-2xl border border-navy-700/10 bg-white/90 p-6 shadow-card backdrop-blur transition duration-500 hover:-translate-y-1 hover:border-leaf-600/40 hover:shadow-lift">
+                    <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-leaf-600 to-lime-500 transition-transform duration-500 group-hover:scale-x-100 rtl:origin-right" />
+                    <div className="flex items-start justify-between">
+                      <span className="grid h-12 w-12 place-items-center rounded-xl bg-aqua-100 text-navy-700 transition-colors duration-500 group-hover:bg-leaf-600 group-hover:text-white">
+                        <I className="h-6 w-6" strokeWidth={1.7} />
+                      </span>
+                      <span className="font-mono text-xl font-semibold text-navy-700/10" dir="ltr">0{i + 1}</span>
+                    </div>
+                    <h3 className="mt-5 text-[1.05rem] font-bold leading-snug">{w.t}</h3>
+                    <p className="mt-2 text-sm leading-relaxed">{w.d}</p>
                   </div>
                 </Reveal>
               )

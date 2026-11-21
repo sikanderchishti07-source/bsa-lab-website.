@@ -2,6 +2,7 @@ import { Atom, Beaker, BookOpen, Cpu, FlaskConical, Inbox, Microscope, ScanLine,
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { PageHero } from '../components/layout/PageHero'
+import { labVideo } from '../components/sections/LabFilm'
 import { Button } from '../components/ui/Button'
 import { CtaBand } from '../components/layout/CtaBand'
 import { SectionTitle } from '../components/ui/SectionTitle'
@@ -29,7 +30,7 @@ export default function Laboratory() {
   const [open, setOpen] = useState<number | null>(null)
   return (
     <>
-      <PageHero eyebrow={t('lab.eyebrow')} title={t('lab.title')} sub={t('lab.sub')} crumbs={[{ label: t('nav.laboratory') }]} />
+      <PageHero eyebrow={t('lab.eyebrow')} title={t('lab.title')} sub={t('lab.sub')} crumbs={[{ label: t('nav.laboratory') }]} video={labVideo} />
 
       <section className="py-24">
         <div className="container">
@@ -79,6 +80,23 @@ export default function Laboratory() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* INSIDE THE LAB — real photos */}
+      <section className="pb-24">
+        <div className="container">
+          <SectionTitle eyebrow={t('lab.gallery.eyebrow')} title={t('lab.gallery.title')} />
+          <div className="mt-10 grid auto-rows-[200px] grid-cols-2 gap-4 md:auto-rows-[220px] lg:grid-cols-4">
+            {(t('lab.gallery.items', { returnObjects: true }) as { k: string; c: string }[]).map((g, i) => (
+              <Reveal key={g.k} delay={(i % 4) * 0.06} className={i === 0 ? 'col-span-2 row-span-2' : i === 3 ? 'col-span-2' : ''}>
+                <figure className="group relative h-full overflow-hidden rounded-2xl bg-navy-900">
+                  <img src={`${import.meta.env.BASE_URL}images/lab/${g.k}.webp`} alt={g.c} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-900/85 to-transparent p-4 pt-10 text-sm font-semibold text-white">{g.c}</figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

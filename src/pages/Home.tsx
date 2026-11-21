@@ -12,6 +12,7 @@ import { SectionTitle } from '../components/ui/SectionTitle'
 import { Reveal } from '../components/ui/Reveal'
 import { Counter } from '../components/ui/Counter'
 import { Marquee } from '../components/ui/Marquee'
+import { LabFilm } from '../components/sections/LabFilm'
 import { PartnerStrip } from '../components/ui/PartnerStrip'
 import { Pending } from '../components/ui/Pending'
 import { CtaBand } from '../components/layout/CtaBand'
@@ -109,6 +110,9 @@ export default function Home() {
           <SampleJourney header={<SectionTitle eyebrow={t('home.journeyEyebrow')} title={t('home.journeyTitle')} sub={t('home.journeySub')} />} />
         </div>
       </section>
+
+      {/* INSIDE OUR LAB — film */}
+      <LabFilm />
 
       <Marquee items={parametersMarquee} />
 

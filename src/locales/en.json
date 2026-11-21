@@ -209,7 +209,23 @@
     ],
     "partnersEyebrow": "Trusted by",
     "partnersTitle": "Leading organisations across the Kingdom",
-    "partnersSub": "Clients and partners served by BSA.lab and the AECON group — from energy and utilities to giga-projects."
+    "partnersSub": "Clients and partners served by BSA.lab and the AECON group — from energy and utilities to giga-projects.",
+    "film": {
+      "eyebrow": "Inside BSA.lab",
+      "title": "See where your samples are analysed",
+      "sub": "Real footage from our Riyadh laboratory — microbiology, photometry, titration and sample digestion, carried out by our own chemists.",
+      "cta": "Explore the laboratory",
+      "tags": [
+        "Microbiology",
+        "DR 3900 photometry",
+        "Titration",
+        "Digestion",
+        "Fume-hood prep"
+      ],
+      "alt": "Footage of BSA.lab chemists at work in the Riyadh laboratory",
+      "play": "Play video",
+      "pause": "Pause video"
+    }
   },
   "about": {
     "eyebrow": "About BSA.lab",
@@ -357,7 +373,45 @@
     "instrumentLabel": "Instrument",
     "paramsCount": "parameters",
     "samplingTitle": "Sampling department",
-    "samplingText": "Our field team performs standard sampling of groundwater, wastewater, sewage and soil. pH, electrical conductivity, temperature, salinity and dissolved oxygen are measured immediately on site, following EPA recommendations."
+    "samplingText": "Our field team performs standard sampling of groundwater, wastewater, sewage and soil. pH, electrical conductivity, temperature, salinity and dissolved oxygen are measured immediately on site, following EPA recommendations.",
+    "gallery": {
+      "eyebrow": "Inside the lab",
+      "title": "Our laboratory at work",
+      "items": [
+        {
+          "k": "microscope",
+          "c": "Microbiology — microscopy"
+        },
+        {
+          "k": "pipetting",
+          "c": "Sample preparation"
+        },
+        {
+          "k": "bench",
+          "c": "General chemistry bench"
+        },
+        {
+          "k": "photometer",
+          "c": "HACH DR 3900 photometer"
+        },
+        {
+          "k": "titration",
+          "c": "Titration"
+        },
+        {
+          "k": "fume-hood",
+          "c": "Fume-hood preparation"
+        },
+        {
+          "k": "digestion",
+          "c": "Sample digestion"
+        },
+        {
+          "k": "field-team",
+          "c": "Our field sampling team"
+        }
+      ]
+    }
   },
   "walkin": {
     "eyebrow": "Walk-in clients",

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, BadgeCheck, Building2, CheckCircle2, Clock, FlaskConical, MapPin, Microscope, ShieldCheck, Truck, Users } from 'lucide-react'
-import { WaterHero } from '../components/animations/WaterHero'
 import { HeroReport } from '../components/animations/HeroReport'
 import { SampleJourney } from '../components/animations/SampleJourney'
 import { ServicesShowcase } from '../components/animations/ServicesShowcase'
@@ -12,7 +11,8 @@ import { SectionTitle } from '../components/ui/SectionTitle'
 import { Reveal } from '../components/ui/Reveal'
 import { Counter } from '../components/ui/Counter'
 import { Marquee } from '../components/ui/Marquee'
-import { LabFilm } from '../components/sections/LabFilm'
+import { LabFilm, labVideo } from '../components/sections/LabFilm'
+import { LabPhotos } from '../components/sections/LabPhotos'
 import { PartnerStrip } from '../components/ui/PartnerStrip'
 import { Pending } from '../components/ui/Pending'
 import { CtaBand } from '../components/layout/CtaBand'
@@ -34,9 +34,13 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="on-dark relative isolate overflow-hidden bg-navy-700 text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_35%,rgba(47,111,181,.40),transparent_55%)]" />
-        <div className="grain absolute inset-0 -z-10 opacity-40" />
-        <WaterHero className="-z-10 opacity-70" />
+        {/* real lab footage behind the hero */}
+        <video className="absolute inset-0 -z-20 h-full w-full object-cover motion-reduce:hidden" src={labVideo.src} poster={labVideo.poster} autoPlay muted loop playsInline preload="auto" aria-hidden />
+        <img src={labVideo.poster} alt="" aria-hidden className="absolute inset-0 -z-20 hidden h-full w-full object-cover motion-reduce:block" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-900/[0.97] via-navy-900/85 to-navy-900/55 rtl:bg-gradient-to-l" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-900/80 via-transparent to-navy-900/40" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_35%,rgba(47,111,181,.30),transparent_55%)]" />
+        <div className="grain absolute inset-0 -z-10 opacity-30" />
         <div className="absolute inset-0 -z-10 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_70%_45%,black,transparent_70%)]" aria-hidden />
         <div className="container grid items-center gap-14 pb-20 pt-32 lg:min-h-[92svh] lg:grid-cols-[1.1fr_1fr] lg:pb-20 lg:pt-28 xl:gap-16">
           <div className="max-w-2xl">
@@ -82,6 +86,10 @@ export default function Home() {
             <HeroReport />
           </div>
         </div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }} className="absolute bottom-9 end-28 hidden items-center gap-2 rounded-full border border-white/15 bg-navy-900/50 px-3.5 py-1.5 text-[11px] font-medium text-white/80 backdrop-blur-md md:flex">
+          <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" /></span>
+          {t('home.heroFootage')}
+        </motion.div>
       </section>
 
       {/* TRUST BAR */}
@@ -171,6 +179,9 @@ export default function Home() {
       <IndustriesShowcase />
 
       <StripeDivider />
+
+      {/* LAB PHOTOS */}
+      <LabPhotos />
 
       {/* WHY */}
       <section className="relative overflow-hidden border-y border-aqua-400/15 bg-gradient-to-br from-[#E6EEFA] via-[#F1F6FD] to-[#D8E5F6] py-20 lg:flex lg:min-h-[calc(100svh-72px)] lg:items-center lg:py-16">

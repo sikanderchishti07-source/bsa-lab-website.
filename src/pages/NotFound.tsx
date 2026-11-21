@@ -5,7 +5,7 @@ import { useSeo } from '../hooks/useSeo'
 
 export default function NotFound() {
   const { t } = useL()
-  useSeo(t('seo.notFound'))
+  useSeo(t('seo.notFound'), undefined, { noindex: true })
   return (
     <section className="on-dark relative grid min-h-[90vh] place-items-center overflow-hidden bg-navy-700 px-6 pt-24 text-center text-white">
       <div>

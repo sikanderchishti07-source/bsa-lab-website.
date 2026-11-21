@@ -50,7 +50,8 @@
     "terms": "Terms of Use | BSA.lab",
     "notFound": "Page not found | BSA.lab",
     "tests": "Test Catalogue & Saudi Limits | BSA.lab",
-    "insights": "Insights & Guides | BSA.lab Environmental Laboratory"
+    "insights": "Insights & Guides | BSA.lab Environmental Laboratory",
+    "faqDesc": "Answers to common questions about environmental testing at BSA.lab: sampling, bottles, turnaround times, reports, accreditation and walk-in service in Riyadh."
   },
   "home": {
     "eyebrow": "Environmental Laboratory • Riyadh",
@@ -515,7 +516,10 @@
       "name": "Enter your name",
       "phone": "Enter a valid Saudi mobile, e.g. +9665XXXXXXXX",
       "email": "Enter a valid email"
-    }
+    },
+    "mailtoTitle": "Almost done — press Send",
+    "mailtoText": "Your email app has opened with your request already filled in. Press Send to deliver it to our lab team.",
+    "sendError": "Sorry, your request could not be sent. Please try again or call us on"
   },
   "booking": {
     "site": "Site / facility name",

@@ -9,7 +9,14 @@ import { useSeo } from '../hooks/useSeo'
 
 export default function FAQ() {
   const { t, pick } = useL()
-  useSeo(t('seo.faq'), t('faq.sub'))
+  useSeo(t('seo.faq'), t('seo.faqDesc'), {
+    path: '/faq',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.filter((f) => !f.todo).map((f) => ({ '@type': 'Question', name: pick(f.q), acceptedAnswer: { '@type': 'Answer', text: pick(f.a) } })),
+    },
+  })
   return (
     <>
       <PageHero eyebrow={t('faq.eyebrow')} title={t('faq.title')} sub={t('faq.sub')} crumbs={[{ label: t('nav.faq') }]} />

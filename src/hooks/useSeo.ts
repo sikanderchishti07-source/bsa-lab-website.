@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { site } from '../config/site'
 
-type Extra = { path?: string; image?: string; type?: 'website' | 'article'; jsonLd?: Record<string, unknown> }
+type Extra = { path?: string; image?: string; type?: 'website' | 'article'; jsonLd?: Record<string, unknown>; noindex?: boolean }
 
 function meta(attr: 'name' | 'property', key: string, value: string) {
   let m = document.querySelector(`meta[${attr}="${key}"]`)
@@ -15,7 +15,7 @@ function meta(attr: 'name' | 'property', key: string, value: string) {
 
 /** Sets title, description, canonical, Open Graph and optional JSON-LD per page (client-side SEO). */
 export function useSeo(title: string, description?: string, extra: Extra = {}) {
-  const { path, image, type, jsonLd } = extra
+  const { path, image = 'og-image.jpg', type, jsonLd, noindex } = extra
   const ld = jsonLd ? JSON.stringify(jsonLd) : ''
   useEffect(() => {
     document.title = title
@@ -27,8 +27,8 @@ export function useSeo(title: string, description?: string, extra: Extra = {}) {
       meta('name', 'twitter:description', description)
     }
     meta('property', 'og:type', type ?? 'website')
-    if (path !== undefined) {
-      const url = site.url.replace(/\/$/, '') + path
+    {
+      const url = site.url.replace(/\/$/, '') + (path ?? (import.meta.env.VITE_ROUTER === 'memory' ? '/' : window.location.pathname))
       let link = document.querySelector('link[rel="canonical"]')
       if (!link) {
         link = document.createElement('link')
@@ -38,7 +38,10 @@ export function useSeo(title: string, description?: string, extra: Extra = {}) {
       link.setAttribute('href', url)
       meta('property', 'og:url', url)
     }
-    if (image) meta('property', 'og:image', site.url.replace(/\/$/, '') + '/' + image.replace(/^\.?\//, ''))
+    const img = site.url.replace(/\/$/, '') + '/' + image.replace(/^\.?\//, '')
+    meta('property', 'og:image', img)
+    meta('name', 'twitter:image', img)
+    meta('name', 'robots', noindex ? 'noindex, follow' : 'index, follow')
 
     let script: HTMLScriptElement | null = null
     if (ld) {
@@ -49,5 +52,5 @@ export function useSeo(title: string, description?: string, extra: Extra = {}) {
       document.head.appendChild(script)
     }
     return () => { script?.remove() }
-  }, [title, description, path, image, type, ld])
+  }, [title, description, path, image, type, ld, noindex])
 }

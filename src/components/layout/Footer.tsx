@@ -56,8 +56,8 @@ export function Footer() {
             <li className="text-white/50">{site.hours[lang]}</li>
           </ul>
           <div className="mt-6 flex gap-2">
-            {[{ h: site.social.linkedin, I: LinkedinIcon, l: 'LinkedIn' }, { h: site.social.x, I: XIcon, l: 'X' }, { h: site.social.instagram, I: InstagramIcon, l: 'Instagram' }].map(({ h, I, l }) => (
-              <a key={l} href={h} aria-label={l} className="grid h-10 w-10 place-items-center rounded-full bg-white/5 transition hover:bg-leaf-600 hover:text-white"><I className="h-4 w-4" /></a>
+            {[{ h: site.social.linkedin, I: LinkedinIcon, l: 'LinkedIn' }, { h: site.social.x, I: XIcon, l: 'X' }, { h: site.social.instagram, I: InstagramIcon, l: 'Instagram' }].filter((x) => x.h && x.h !== '#').map(({ h, I, l }) => (
+              <a key={l} href={h} aria-label={l} target="_blank" rel="noreferrer" className="grid h-10 w-10 place-items-center rounded-full bg-white/5 transition hover:bg-leaf-600 hover:text-white"><I className="h-4 w-4" /></a>
             ))}
           </div>
         </div>

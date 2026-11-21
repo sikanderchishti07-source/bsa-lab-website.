@@ -1,33 +1,20 @@
-import { Atom, Beaker, BookOpen, Cpu, FlaskConical, Inbox, Microscope, ScanLine, ShieldCheck, TestTubes } from 'lucide-react'
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { Atom, Beaker, BookOpen, FlaskConical, Inbox, Microscope, ScanLine, ShieldCheck, TestTubes } from 'lucide-react'
 import { PageHero } from '../components/layout/PageHero'
 import { labVideo } from '../components/sections/LabFilm'
 import { Button } from '../components/ui/Button'
 import { CtaBand } from '../components/layout/CtaBand'
 import { SectionTitle } from '../components/ui/SectionTitle'
 import { Reveal } from '../components/ui/Reveal'
-import { Pending } from '../components/ui/Pending'
 import { departments, equipment } from '../data/content'
 import { useL } from '../lib/i18n-helpers'
 import { useSeo } from '../hooks/useSeo'
 
 const deptIcons = { organic: FlaskConical, icp: Atom, spectro: ScanLine, general: Beaker, micro: Microscope }
-// TODO_REPLACE: swap these placeholder tiles for real laboratory photos (put files in /public/images/lab and set `src`).
-const gallery: { src?: string; label: string; icon: typeof Beaker; tone: string }[] = [
-  { label: 'Sample reception', icon: Inbox, tone: 'from-navy-700 to-navy-500' },
-  { label: 'Spectrophotometry (HACH DR 3900)', icon: Beaker, tone: 'from-leaf-600 to-navy-700' },
-  { label: 'ICP-MS & GC', icon: Cpu, tone: 'from-aqua-400 to-navy-700' },
-  { label: 'Microbiology', icon: Microscope, tone: 'from-navy-500 to-leaf-600' },
-  { label: 'Field kits', icon: TestTubes, tone: 'from-lime-500 to-leaf-600' },
-  { label: 'Cold storage', icon: FlaskConical, tone: 'from-navy-900 to-aqua-400' },
-]
 
 export default function Laboratory() {
   const { t, pick } = useL()
   useSeo(t('seo.laboratory'), t('lab.sub'))
   const qa = t('lab.qa', { returnObjects: true }) as string[]
-  const [open, setOpen] = useState<number | null>(null)
   return (
     <>
       <PageHero eyebrow={t('lab.eyebrow')} title={t('lab.title')} sub={t('lab.sub')} crumbs={[{ label: t('nav.laboratory') }]} video={labVideo} />
@@ -138,35 +125,6 @@ export default function Laboratory() {
         </div>
       </section>
 
-      <section className="bg-mist-50 py-24">
-        <div className="container">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionTitle eyebrow={t('lab.eyebrow')} title={t('lab.galleryTitle')} />
-            <p className="flex items-center gap-2 text-sm"><Pending />{t('lab.galleryNote')}</p>
-          </div>
-          <div className="mt-12 grid auto-rows-[200px] grid-cols-2 gap-4 lg:grid-cols-4">
-            {gallery.map((g, i) => (
-              <Reveal key={g.label} delay={(i % 4) * 0.06} className={i === 0 ? 'col-span-2 row-span-2' : i === 3 ? 'lg:col-span-2' : ''}>
-                <button onClick={() => setOpen(i)} className={`group relative h-full w-full overflow-hidden rounded-3xl bg-gradient-to-br ${g.tone} text-start`} aria-label={g.label}>
-                  {g.src ? <img src={g.src} alt={g.label} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" /> : <g.icon className="absolute end-6 top-6 h-14 w-14 text-white/25 transition duration-700 group-hover:scale-110" strokeWidth={1.2} />}
-                  <div className="grain absolute inset-0" />
-                  <span className="absolute bottom-5 start-5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur">{g.label}</span>
-                </button>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-        <AnimatePresence>
-          {open !== null && (
-            <motion.div className="fixed inset-0 z-[80] grid place-items-center bg-navy-900/90 p-6 backdrop-blur" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setOpen(null)} role="dialog" aria-modal="true">
-              <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }} className={`relative grid aspect-video w-full max-w-4xl place-items-center overflow-hidden rounded-3xl bg-gradient-to-br ${gallery[open].tone}`}>
-                {(() => { const G = gallery[open]; return G.src ? <img src={G.src} alt={G.label} className="h-full w-full object-cover" /> : <G.icon className="h-24 w-24 text-white/40" strokeWidth={1} /> })()}
-                <span className="absolute bottom-6 start-6 text-lg font-bold text-white">{gallery[open].label}</span>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
       <CtaBand />
     </>
   )

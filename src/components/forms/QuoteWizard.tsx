@@ -8,7 +8,8 @@ import { Button } from '../ui/Button'
 import { SuccessLeaf } from './SuccessLeaf'
 import { services } from '../../data/services'
 import { ksaCities } from '../../data/content'
-import { submitQuote } from '../../lib/submit'
+import { submitQuote, type SubmitResult } from '../../lib/submit'
+import { site } from '../../config/site'
 import { useL } from '../../lib/i18n-helpers'
 
 const schema = z.object({
@@ -35,7 +36,8 @@ export function QuoteWizard() {
   const [step, setStep] = useState(0)
   const [dir, setDir] = useState(1)
   const [file, setFile] = useState<File | null>(null)
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState<SubmitResult | null>(null)
+  const [failed, setFailed] = useState(false)
   const { register, control, handleSubmit, trigger, reset, watch, formState: { errors, isSubmitting } } = useForm<Form>({
     resolver: zodResolver(schema),
     defaultValues: { services: [], sampleCount: 1, collection: 'bsa', city: '' },
@@ -52,8 +54,8 @@ export function QuoteWizard() {
     setStep(n)
   }
   const onSubmit = async (d: Form) => {
-    await submitQuote(d, file)
-    setDone(true)
+    setFailed(false)
+    try { setDone(await submitQuote(d, file)) } catch { setFailed(true) }
   }
   const err = (k: keyof Form) => errors[k] && <p className="mt-1.5 text-sm text-red-600" role="alert">{t(`contact.err.${errors[k]?.message}`)}</p>
   const slide = { enter: (d: number) => ({ x: (isRtl ? -d : d) * 40, opacity: 0 }), center: { x: 0, opacity: 1 }, exit: (d: number) => ({ x: (isRtl ? d : -d) * 40, opacity: 0 }) }
@@ -62,9 +64,9 @@ export function QuoteWizard() {
     return (
       <div className="card p-10 text-center sm:p-14">
         <SuccessLeaf />
-        <h2 className="mt-8 text-3xl font-extrabold">{t('contact.successTitle')}</h2>
-        <p className="mx-auto mt-3 max-w-md text-lg">{t('contact.successText')}</p>
-        <div className="mt-8"><Button variant="navy" onClick={() => { reset(); setFile(null); setStep(0); setDone(false) }}>{t('contact.another')}</Button></div>
+        <h2 className="mt-8 text-3xl font-extrabold">{t(done === 'mailto' ? 'contact.mailtoTitle' : 'contact.successTitle')}</h2>
+        <p className="mx-auto mt-3 max-w-md text-lg">{t(done === 'mailto' ? 'contact.mailtoText' : 'contact.successText')}</p>
+        <div className="mt-8"><Button variant="navy" onClick={() => { reset(); setFile(null); setStep(0); setDone(null) }}>{t('contact.another')}</Button></div>
       </div>
     )
 
@@ -167,8 +169,13 @@ export function QuoteWizard() {
         </AnimatePresence>
       </div>
 
+      {failed && (
+        <p role="alert" className="mx-6 mb-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 sm:mx-10">
+          {t('contact.sendError')} <a href={site.phoneHref} className="font-semibold underline" dir="ltr">{site.phone}</a>
+        </p>
+      )}
       <div className="flex items-center justify-between gap-3 border-t border-navy-700/10 px-6 py-5 sm:px-10">
-        <button type="button" onClick={() => go(step - 1)} className={`rounded-full px-5 py-3 text-sm font-semibold text-navy-700 hover:bg-navy-700/5 ${step === 0 ? 'invisible' : ''}`}>{t('contact.back')}</button>
+        <button type="button" onClick={() => go(step - 1)} aria-hidden={step === 0 || undefined} tabIndex={step === 0 ? -1 : undefined} className={`rounded-full px-5 py-3 text-sm font-semibold text-navy-700 hover:bg-navy-700/5 ${step === 0 ? 'invisible' : ''}`}>{t('contact.back')}</button>
         {step < stepNames.length - 1 ? (
           <Button onClick={() => go(step + 1)} variant="navy" arrow>{t('contact.next')}</Button>
         ) : (

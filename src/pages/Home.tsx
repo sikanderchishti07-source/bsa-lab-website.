@@ -12,6 +12,7 @@ import { SectionTitle } from '../components/ui/SectionTitle'
 import { Reveal } from '../components/ui/Reveal'
 import { Counter } from '../components/ui/Counter'
 import { Marquee } from '../components/ui/Marquee'
+import { PartnerStrip } from '../components/ui/PartnerStrip'
 import { Pending } from '../components/ui/Pending'
 import { CtaBand } from '../components/layout/CtaBand'
 import { parametersMarquee } from '../data/content'
@@ -230,6 +231,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PartnerStrip />
 
       <CtaBand />
     </>

@@ -17,7 +17,8 @@
     "skip": "Skip to content",
     "servicesIntro": "From one bottle of well water to a Kingdom-wide monitoring programme.",
     "tests": "Test Catalogue",
-    "fullCatalogue": "Full test catalogue"
+    "fullCatalogue": "Full test catalogue",
+    "insights": "Insights"
   },
   "common": {
     "learnMore": "Learn more",
@@ -48,7 +49,8 @@
     "privacy": "Privacy Policy | BSA.lab",
     "terms": "Terms of Use | BSA.lab",
     "notFound": "Page not found | BSA.lab",
-    "tests": "Test Catalogue & Saudi Limits | BSA.lab"
+    "tests": "Test Catalogue & Saudi Limits | BSA.lab",
+    "insights": "Insights & Guides | BSA.lab Environmental Laboratory"
   },
   "home": {
     "eyebrow": "Environmental Laboratory • Riyadh",
@@ -621,5 +623,21 @@
     "samplingTitle": "Getting the sample right",
     "walkInLink": "Bring a sample to the lab",
     "keepCold": "Keep samples cold"
+  },
+  "insights": {
+    "eyebrow": "Insights",
+    "title": "Guides and insights from our laboratory",
+    "sub": "Practical articles on sampling, testing and compliance in Saudi Arabia — written by the BSA.lab technical team.",
+    "homeTitle": "Latest from our laboratory",
+    "all": "All articles",
+    "filter": "Filter articles by topic",
+    "read": "Read article",
+    "readTime": "{{n}} min read",
+    "author": "BSA.lab Technical Team",
+    "back": "Back to all articles",
+    "relatedServices": "Related services",
+    "asideTitle": "Need this tested?",
+    "asideText": "Send us your sample or book our field team — reports in 6 working days, urgent service on request.",
+    "more": "More articles"
   }
 }

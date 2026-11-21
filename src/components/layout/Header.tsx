@@ -17,6 +17,7 @@ const links = [
   { to: '/laboratory', key: 'laboratory' },
   { to: '/walk-in', key: 'walkin' },
   { to: '/industries', key: 'industries' },
+  { to: '/insights', key: 'insights' },
   { to: '/contact', key: 'contact' },
 ]
 

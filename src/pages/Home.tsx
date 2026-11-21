@@ -13,6 +13,7 @@ import { Counter } from '../components/ui/Counter'
 import { Marquee } from '../components/ui/Marquee'
 import { LabFilm, labVideo } from '../components/sections/LabFilm'
 import { LabPhotos } from '../components/sections/LabPhotos'
+import { InsightsTeaser } from '../components/sections/InsightsTeaser'
 import { PartnerStrip } from '../components/ui/PartnerStrip'
 import { Pending } from '../components/ui/Pending'
 import { CtaBand } from '../components/layout/CtaBand'
@@ -155,23 +156,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="on-dark relative overflow-hidden bg-navy-900 py-20 text-white">
-        <div className="grain absolute inset-0" aria-hidden />
-        <div className="container relative">
-          <Reveal><h2 className="text-center text-2xl font-bold !text-white sm:text-3xl">{t('home.statsTitle')}</h2></Reveal>
-          <div className="mt-12 grid grid-cols-2 gap-y-10 lg:grid-cols-4">
-            {site.stats.filter((s) => !s.todo || site.showUnconfirmed).map((s, i) => (
-              <Reveal key={s.key} delay={i * 0.08} className="border-white/10 px-4 text-center lg:border-s lg:first:border-s-0">
-                <div className="font-display text-5xl font-extrabold text-white sm:text-6xl">
-                  <Counter to={s.value} suffix={s.suffix} />
-                </div>
-                <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-gradient-to-r from-leaf-600 to-lime-500" />
-                <p className="mt-3 text-sm text-white/70">{t(`home.stats.${s.key}`)}</p>
-                {s.todo && <Pending className="mt-2" />}
+      {/* STATS — slim band */}
+      <section className="on-dark relative overflow-hidden bg-navy-900 text-white">
+        <div className="grain absolute inset-0 opacity-60" aria-hidden />
+        <div aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-navy-500 via-leaf-600 to-lime-500" />
+        <div className="container relative grid items-center gap-8 py-10 lg:grid-cols-[auto_1fr] lg:gap-12 lg:py-12">
+          <div className="lg:max-w-[220px]">
+            <p className="font-display text-lg font-bold leading-snug !text-white">{t('home.statsTitle')}</p>
+            {site.stats.some((x) => x.todo) && site.showUnconfirmed && <Pending className="mt-2" />}
+          </div>
+          <dl className="grid grid-cols-2 gap-y-6 sm:grid-cols-4">
+            {site.stats.filter((x) => !x.todo || site.showUnconfirmed).map((x, i) => (
+              <Reveal key={x.key} delay={i * 0.06} className="border-white/10 px-5 sm:border-s">
+                <dt className="font-display text-3xl font-extrabold leading-none text-white lg:text-[2.6rem]">
+                  <Counter to={x.value} suffix={x.suffix} />
+                </dt>
+                <dd className="mt-2 flex items-center gap-2 text-[13px] leading-snug text-white/65">
+                  <span aria-hidden className="h-[2px] w-4 shrink-0 bg-lime-500" />
+                  {t(`home.stats.${x.key}`)}
+                </dd>
               </Reveal>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
@@ -248,6 +254,9 @@ export default function Home() {
       </section>
 
       <PartnerStrip />
+
+      {/* INSIGHTS */}
+      <InsightsTeaser />
 
       <CtaBand />
     </>

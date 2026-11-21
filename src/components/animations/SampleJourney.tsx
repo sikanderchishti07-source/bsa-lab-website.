@@ -30,7 +30,7 @@ export function SampleJourney({ header }: { header?: ReactNode }) {
       const nodes = el.querySelectorAll('.j-node')
       const checks = el.querySelectorAll('.j-node-check')
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: el, start: 'top top', end: '+=1800', scrub: 0.6, pin: true, anticipatePin: 1 },
+        scrollTrigger: { trigger: el, start: 'top top', end: '+=1000', scrub: 0.6, pin: true, anticipatePin: 1 },
       })
       tl.fromTo('.j-fill', { scaleX: 0 }, { scaleX: 1, ease: 'none', duration: N }, 0)
       const prop = isRtl ? 'right' : 'left'

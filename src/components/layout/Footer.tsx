@@ -11,7 +11,7 @@ export function Footer() {
   const { t, pick, lang } = useL()
   const quick = [
     ['/about', 'about'], ['/sampling', 'sampling'], ['/laboratory', 'laboratory'], ['/tests', 'tests'], ['/walk-in', 'walkin'],
-    ['/industries', 'industries'], ['/faq', 'faq'], ['/track', 'track'], ['/contact', 'contact'],
+    ['/industries', 'industries'], ['/insights', 'insights'], ['/faq', 'faq'], ['/track', 'track'], ['/contact', 'contact'],
   ]
   return (
     <footer className="on-dark relative overflow-hidden bg-navy-900 text-white/70">

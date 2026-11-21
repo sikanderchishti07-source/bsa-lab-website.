@@ -534,10 +534,23 @@
   "track": {
     "eyebrow": "Results portal",
     "title": "Track your report",
-    "sub": "Enter the reference number printed on your sample receipt.",
-    "placeholder": "e.g. BSA-2026-00123",
-    "button": "Track",
-    "soon": "Coming soon: our online results portal. For now, contact us and we'll update you right away."
+    "sub": "Soon you'll be able to follow your sample from reception to signed report using the reference number on your receipt.",
+    "placeholder": "Report number, e.g. BSA-2026-00123",
+    "button": "Track report",
+    "soon": "Coming soon: our online results portal. For now, contact us and we'll update you right away.",
+    "soonTitle": "Coming soon",
+    "heading": "Online report tracking is on its way",
+    "label": "Report or sample reference number",
+    "notYet": "Online tracking isn't live yet. Send us your reference number and our lab team will give you the status right away.",
+    "waText": "Hello BSA.lab, I'd like the status of my report:",
+    "hint": "The reference number is printed on your sample receipt.",
+    "preview": "What you'll be able to see",
+    "stages": [
+      "Sample received",
+      "In analysis",
+      "QA/QC review",
+      "Report ready"
+    ]
   },
   "notFound": {
     "title": "This test tube is empty",

@@ -30,8 +30,10 @@ export default {
       keyframes: {
         marquee: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
         pulseRing: { '0%': { transform: 'scale(.6)', opacity: '.9' }, '100%': { transform: 'scale(2.6)', opacity: '0' } },
+        bubble: { '0%': { transform: 'translateY(0)', opacity: '0' }, '15%': { opacity: '1' }, '100%': { transform: 'translateY(-46px)', opacity: '0' } },
+        floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
       },
-      animation: { marquee: 'marquee 45s linear infinite', pulseRing: 'pulseRing 2.2s ease-out infinite' },
+      animation: { marquee: 'marquee 45s linear infinite', pulseRing: 'pulseRing 2.2s ease-out infinite', bubble: 'bubble 2.8s ease-in infinite', floaty: 'floaty 6s ease-in-out infinite' },
     },
   },
   plugins: [],

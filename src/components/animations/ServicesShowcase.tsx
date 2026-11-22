@@ -65,7 +65,7 @@ export function ServicesShowcase() {
     mm.add('(min-width: 1024px)', () => {
       const el = root.current!
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: el, start: 'top top', end: '+=90%', scrub: 0.6, pin: true, anticipatePin: 1 },
+        scrollTrigger: { trigger: el, start: 'top top', end: '+=40%', scrub: 0.6, pin: true, anticipatePin: 1 },
       })
       tl.fromTo(el.querySelectorAll('.sc-intro > *'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, stagger: 0.06, duration: 0.5, ease: 'power2.out' }, 0)
       tl.fromTo(el.querySelectorAll('.sc-card'), { opacity: 0, y: 60 }, { opacity: 1, y: 0, stagger: 0.045, duration: 0.6, ease: 'power3.out' }, 0.1)

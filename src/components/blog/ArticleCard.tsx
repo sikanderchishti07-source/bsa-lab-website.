@@ -7,8 +7,22 @@ export function formatDate(iso: string, lang: string) {
   return new Date(iso + 'T00:00:00').toLocaleDateString(lang === 'ar' ? 'ar-SA-u-ca-gregory' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
-export function ArticleCard({ a, featured = false }: { a: Article; featured?: boolean }) {
+export function ArticleCard({ a, featured = false, compact = false }: { a: Article; featured?: boolean; compact?: boolean }) {
   const { t, pick, lang } = useL()
+  if (compact) {
+    return (
+      <Link to={`/insights/${a.slug}`} className="group flex h-full items-center gap-4 rounded-2xl border border-navy-700/10 bg-white p-3 shadow-card transition duration-300 hover:-translate-y-0.5 hover:border-leaf-600/30 hover:shadow-lift">
+        <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-xl bg-navy-900">
+          <img src={articleImage(a)} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+        </div>
+        <div className="min-w-0 flex-1 pe-1">
+          <span className="text-[11px] font-bold uppercase tracking-wide text-leaf-600 rtl:tracking-normal">{pick(a.category)}</span>
+          <h3 className="mt-1 line-clamp-2 text-[15px] font-bold leading-snug transition-colors group-hover:text-leaf-600">{pick(a.title)}</h3>
+          <p className="mt-1.5 flex items-center gap-1 text-xs text-ink-600"><Clock className="h-3 w-3" />{t('insights.readTime', { n: a.readMins })}</p>
+        </div>
+      </Link>
+    )
+  }
   return (
     <Link
       to={`/insights/${a.slug}`}

@@ -74,7 +74,7 @@ export function Header() {
           </Link>
 
           <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Main">
-            {links.map((l) =>
+            {links.filter((l) => l.to !== '/').map((l) =>
               l.mega ? (
                 <div key={l.key} className="relative" onMouseEnter={() => setMega(true)} onMouseLeave={() => setMega(false)}>
                   <NavLink
